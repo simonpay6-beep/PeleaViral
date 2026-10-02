@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dxdfnl6ikvkas"]
+
+[ext_resource type="Texture2D" uid="uid://clwbffhv4duhr" path="res://assets/sprites/pv.png" id="1_70vh5"]
+[ext_resource type="Script" uid="uid://drg51jabtku7w" path="res://pantalla_inicio.gd" id="1_deuh0"]
+
+[node name="Node2D" type="Node2D" unique_id=514726240]
+script = ExtResource("1_deuh0")
+
+[node name="Pv" type="Sprite2D" parent="." unique_id=2126799789]
+position = Vector2(361, 239.49998)
+scale = Vector2(0.3760417, 0.44907403)
+texture = ExtResource("1_70vh5")
+
+[node name="JUGAR" type="Button" parent="." unique_id=199153727]
+offset_left = 32.0
+offset_top = 266.0
+offset_right = 217.0
+offset_bottom = 304.0
+
+[node name="INSTRUCCIONES" type="Button" parent="." unique_id=482693301]
+offset_left = 37.0
+offset_top = 325.0
+offset_right = 210.0
+offset_bottom = 373.0
+
+[node name="CREDITOS" type="Button" parent="." unique_id=740686969]
+offset_left = 42.0
+offset_top = 387.0
+offset_right = 207.0
+offset_bottom = 426.0
+
+[node name="SALIR" type="Button" parent="." unique_id=2144301348]
+offset_left = 35.0
+offset_top = 438.0
+offset_right = 216.0
+offset_bottom = 473.0
+
+[connection signal="pressed" from="JUGAR" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="INSTRUCCIONES" to="." method="_on_instrucciones_pressed"]
+[connection signal="pressed" from="CREDITOS" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="SALIR" to="." method="_on_salir_pressed"]

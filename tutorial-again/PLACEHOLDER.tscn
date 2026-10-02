@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c5e3n6r3tough"]
+
+[ext_resource type="Texture2D" uid="uid://bgql7dqn1ac44" path="res://placeholder.png" id="1_aqyd4"]
+
+[node name="Node2D" type="Node2D" unique_id=2036351664]
+
+[node name="Placeholder" type="Sprite2D" parent="." unique_id=210342596]
+position = Vector2(358.5, 240.5)
+scale = Vector2(1.3207885, 1.1790698)
+texture = ExtResource("1_aqyd4")
+
+[node name="Label" type="Label" parent="." unique_id=1386682042]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PLACEHOLDER"

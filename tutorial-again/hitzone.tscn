@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ugn06p7cuky2"]
+
+[ext_resource type="Script" uid="uid://c3hg82t42gysr" path="res://hitzone.gd" id="1_q2420"]
+
+[node name="hitZone" type="Button" unique_id=1036070500]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -563.0
+offset_bottom = -335.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q2420")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

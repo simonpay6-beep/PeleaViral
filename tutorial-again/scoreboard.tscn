@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://d0yf51dn2yo5s"]
+
+[ext_resource type="PackedScene" uid="uid://yj0504xxcjb5" path="res://battle_background.tscn" id="1_jeshg"]
+
+[node name="scoreboard" type="Control" unique_id=1855818494]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="battle_background" parent="." unique_id=1380217646 instance=ExtResource("1_jeshg")]
+metadata/_edit_lock_ = true
+
+[node name="Espectadores" type="Label" parent="." unique_id=599248848]
+layout_mode = 0
+offset_top = 141.0
+offset_right = 123.0
+offset_bottom = 164.0
+text = "ESPECTADORES:"
+
+[node name="Eapectadores_numero" type="Label" parent="Espectadores" unique_id=239181773]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 27.0
+offset_right = 43.0
+offset_bottom = 50.0
+text = "0"
+
+[node name="Canal" type="Label" parent="." unique_id=1448257853]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "CANAL:"
+
+[node name="Canal_nombre" type="Label" parent="Canal" unique_id=821319135]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 122.0
+offset_bottom = 46.0
+text = "PELEAVIRAL"
+
+[node name="Label" type="Label" parent="." unique_id=281437744]
+layout_mode = 0
+offset_top = 197.0
+offset_right = 43.0
+offset_bottom = 220.0
+text = "CHAT:"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=997141603]
+layout_mode = 0
+offset_top = 224.0
+offset_right = 119.0
+offset_bottom = 461.0
+color = Color(0.15127608, 0.15127608, 0.15127608, 1)

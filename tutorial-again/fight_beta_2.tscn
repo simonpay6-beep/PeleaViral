@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://ch0jcf2jbqaot"]
+
+[ext_resource type="PackedScene" uid="uid://doms2xrg6hxw8" path="res://hitbox.tscn" id="1_163gf"]
+[ext_resource type="Script" uid="uid://diwibtt7y6hgi" path="res://fight_beta_2.gd" id="1_k34dx"]
+[ext_resource type="PackedScene" uid="uid://yj0504xxcjb5" path="res://battle_background.tscn" id="2_k34dx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6nnv"]
+size = Vector2(293, 199)
+
+[node name="fight_beta2" type="Node2D" unique_id=510456450]
+script = ExtResource("1_k34dx")
+
+[node name="HITBOX" parent="." unique_id=1693720020 instance=ExtResource("1_163gf")]
+z_index = -20
+offset_left = 125.0
+offset_top = 7.0
+offset_right = 125.0
+offset_bottom = 7.0
+metadata/_edit_lock_ = true
+
+[node name="Button1" type="Button" parent="HITBOX" unique_id=821200850]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 196.0
+metadata/_edit_lock_ = true
+
+[node name="HITBOX2" parent="." unique_id=32106037 instance=ExtResource("1_163gf")]
+z_index = -20
+offset_left = 125.0
+offset_top = 211.0
+offset_right = 125.0
+offset_bottom = 211.0
+metadata/_edit_lock_ = true
+
+[node name="Button2" type="Button" parent="HITBOX2" unique_id=50991144]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 295.0
+offset_bottom = 199.0
+metadata/_edit_lock_ = true
+
+[node name="HITBOX3" parent="." unique_id=92759037 instance=ExtResource("1_163gf")]
+z_index = -20
+offset_left = 425.0
+offset_top = 7.0
+offset_right = 425.0
+offset_bottom = 7.0
+metadata/_edit_lock_ = true
+
+[node name="Button3" type="Button" parent="HITBOX3" unique_id=680694871]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 289.0
+offset_bottom = 203.0
+metadata/_edit_lock_ = true
+
+[node name="HITBOX4" parent="." unique_id=455649931 instance=ExtResource("1_163gf")]
+z_index = -20
+offset_left = 424.0
+offset_top = 210.0
+offset_right = 424.0
+offset_bottom = 210.0
+metadata/_edit_lock_ = true
+
+[node name="Button4" type="Button" parent="HITBOX4" unique_id=323190592]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 201.0
+metadata/_edit_lock_ = true
+
+[node name="battle_background" parent="." unique_id=1380217646 instance=ExtResource("2_k34dx")]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="DEFENSEBOX" type="Area2D" parent="." unique_id=91306184]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEFENSEBOX" unique_id=1435541038]
+position = Vector2(273.5, 109.5)
+shape = SubResource("RectangleShape2D_a6nnv")
+metadata/_edit_lock_ = true
+
+[node name="DEFENSEBOX2" type="Area2D" parent="." unique_id=1032251331]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEFENSEBOX2" unique_id=210860485]
+position = Vector2(274, 312)
+shape = SubResource("RectangleShape2D_a6nnv")
+metadata/_edit_lock_ = true
+
+[node name="DEFENSEBOX3" type="Area2D" parent="." unique_id=1431175274]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEFENSEBOX3" unique_id=1856014971]
+position = Vector2(570, 110)
+shape = SubResource("RectangleShape2D_a6nnv")
+metadata/_edit_lock_ = true
+
+[node name="DEFENSEBOX4" type="Area2D" parent="." unique_id=700179448]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEFENSEBOX4" unique_id=11172082]
+position = Vector2(571, 312)
+shape = SubResource("RectangleShape2D_a6nnv")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=626396057]
+
+[connection signal="pressed" from="HITBOX/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="HITBOX2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HITBOX3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HITBOX4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="mouse_entered" from="DEFENSEBOX" to="." method="_on_defensebox_mouse_entered"]
+[connection signal="mouse_exited" from="DEFENSEBOX" to="." method="_on_defensebox_mouse_exited"]
+[connection signal="mouse_entered" from="DEFENSEBOX2" to="." method="_on_defensebox_2_mouse_entered"]
+[connection signal="mouse_exited" from="DEFENSEBOX2" to="." method="_on_defensebox_2_mouse_exited"]
+[connection signal="mouse_entered" from="DEFENSEBOX3" to="." method="_on_defensebox_3_mouse_entered"]
+[connection signal="mouse_exited" from="DEFENSEBOX3" to="." method="_on_defensebox_3_mouse_exited"]
+[connection signal="mouse_entered" from="DEFENSEBOX4" to="." method="_on_defensebox_4_mouse_entered"]
+[connection signal="mouse_exited" from="DEFENSEBOX4" to="." method="_on_defensebox_4_mouse_exited"]

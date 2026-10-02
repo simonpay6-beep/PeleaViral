@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Archivos de importación y caché de Godot
+.godot/
+
+# Configuraciones locales específicas del editor/usuario
+*.translation
+
+# Archivos exportados o builds (opcional pero recomendado)
+build/
+export/

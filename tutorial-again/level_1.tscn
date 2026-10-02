@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://widk7520j30g"]
+
+[ext_resource type="PackedScene" uid="uid://yj0504xxcjb5" path="res://battle_background.tscn" id="1_3hls8"]
+[ext_resource type="Script" uid="uid://cvh0axfc6wx3n" path="res://state_manager.gd" id="1_5hph3"]
+[ext_resource type="PackedScene" uid="uid://d0yf51dn2yo5s" path="res://scoreboard.tscn" id="2_hn12h"]
+[ext_resource type="PackedScene" uid="uid://cvb33v60xsiqu" path="res://player_healthbar.tscn" id="3_ihfcg"]
+[ext_resource type="Texture2D" uid="uid://bgetwyhq3xahq" path="res://assets/sprites/animations;lv1/muelto.png" id="5_bjebc"]
+[ext_resource type="Texture2D" uid="uid://cyq8tnkfue0sv" path="res://assets/sprites/punch.png" id="5_j7kpp"]
+[ext_resource type="PackedScene" uid="uid://dac3kslolju4e" path="res://enemigo.tscn" id="6_5hph3"]
+[ext_resource type="Texture2D" uid="uid://ce2c4hio34s8u" path="res://assets/sprites/animations;lv1/moscas1.png" id="6_gyffv"]
+[ext_resource type="Texture2D" uid="uid://cxbi44ed7qk4d" path="res://assets/sprites/animations;lv1/moscas2.png" id="7_1pe0h"]
+[ext_resource type="PackedScene" uid="uid://ch0jcf2jbqaot" path="res://fight_beta_2.tscn" id="20_3qmij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6nnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gyffv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1pe0h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level 1" type="Node" unique_id=1482271032]
+
+[node name="StateManager" type="Node" parent="." unique_id=368092517]
+script = ExtResource("1_5hph3")
+
+[node name="Logica" type="Node2D" parent="StateManager" unique_id=2087126969]
+
+[node name="scoreboard" parent="StateManager/Logica" unique_id=1855818494 instance=ExtResource("2_hn12h")]
+
+[node name="Arte" type="Node2D" parent="StateManager" unique_id=455909849]
+
+[node name="battle_background" parent="StateManager/Arte" unique_id=1796052782 instance=ExtResource("1_3hls8")]
+metadata/_edit_lock_ = true
+
+[node name="brazo1" type="Sprite2D" parent="StateManager/Arte" unique_id=297053417]
+z_index = 10
+position = Vector2(256, 471)
+scale = Vector2(0.38014463, 0.31722954)
+texture = ExtResource("5_j7kpp")
+
+[node name="brazo2" type="Sprite2D" parent="StateManager/Arte" unique_id=498743325]
+z_index = 10
+position = Vector2(584, 471)
+scale = Vector2(0.36366794, 0.34345683)
+texture = ExtResource("5_j7kpp")
+flip_h = true
+
+[node name="muerto" type="Sprite2D" parent="StateManager/Arte" unique_id=872718239]
+visible = false
+position = Vector2(509.99997, 190.99997)
+scale = Vector2(0.471875, 0.39722222)
+texture = ExtResource("5_bjebc")
+
+[node name="moscas" type="AnimatedSprite2D" parent="StateManager/Arte" unique_id=1934463198]
+visible = false
+position = Vector2(671.00006, 145)
+scale = Vector2(0.28385416, 0.16574074)
+sprite_frames = SubResource("SpriteFrames_a6nnv")
+autoplay = "default"
+frame_progress = 0.014632059
+
+[node name="fight_beta2" parent="StateManager" unique_id=510456450 instance=ExtResource("20_3qmij")]
+metadata/_edit_lock_ = true
+
+[node name="enemigo_healthbar" type="ProgressBar" parent="StateManager/fight_beta2" unique_id=2038954295]
+offset_left = 126.0
+offset_right = 729.0
+offset_bottom = 27.0
+value = 100.0
+
+[node name="enemigo" parent="StateManager/fight_beta2" unique_id=933832438 instance=ExtResource("6_5hph3")]
+position = Vector2(273, 39.000004)
+scale = Vector2(0.75, 0.75)
+metadata/_edit_lock_ = true
+
+[node name="Player Healthbar" parent="StateManager/fight_beta2" unique_id=1313590607 instance=ExtResource("3_ihfcg")]
+offset_left = 14.0
+offset_top = 61.0
+offset_right = 14.0
+offset_bottom = 61.0

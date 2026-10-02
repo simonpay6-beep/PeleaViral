@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cvb33v60xsiqu"]
+
+[ext_resource type="Script" uid="uid://cnwimd7dxgbik" path="res://player_healthbar.gd" id="1_d31i4"]
+[ext_resource type="Texture2D" uid="uid://jpyxueuanu2f" path="res://assets/sprites/bateria1.png" id="1_elprs"]
+[ext_resource type="Texture2D" uid="uid://dstcxi3hs7cao" path="res://assets/sprites/bateria2.png" id="2_d31i4"]
+[ext_resource type="Texture2D" uid="uid://dt2y107we60hp" path="res://assets/sprites/bateria3.png" id="3_eogyp"]
+[ext_resource type="Texture2D" uid="uid://gjju1ft428on" path="res://assets/sprites/bateria4.png" id="4_n70fk"]
+[ext_resource type="Texture2D" uid="uid://csbs8j24cjt68" path="res://assets/sprites/bateria5.png" id="5_e6ypr"]
+[ext_resource type="Texture2D" uid="uid://dk45h6r27p4rr" path="res://assets/sprites/bateriablack.png" id="6_cbrai"]
+[ext_resource type="Texture2D" uid="uid://d7w13p3u2r5c" path="res://assets/sprites/bateriawhite.png" id="7_8id0r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6nnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_elprs")
+}],
+"loop": 1,
+"name": &"bateria1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d31i4")
+}],
+"loop": 1,
+"name": &"bateria2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_eogyp")
+}],
+"loop": 1,
+"name": &"bateria3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n70fk")
+}],
+"loop": 1,
+"name": &"bateria4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_e6ypr")
+}],
+"loop": 1,
+"name": &"bateria5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cbrai")
+}],
+"loop": 1,
+"name": &"bateriablack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_8id0r")
+}],
+"loop": 1,
+"name": &"bateriawhite",
+"speed": 5.0
+}]
+
+[node name="Player Healthbar" type="Control" unique_id=1313590607]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d31i4")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1417943830]
+visible = false
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 32.0
+step = 0.0
+value = 50.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1105728992]
+position = Vector2(48.75, 35.5)
+scale = Vector2(0.60967743, 0.6018519)
+sprite_frames = SubResource("SpriteFrames_a6nnv")
+animation = &"bateria5"

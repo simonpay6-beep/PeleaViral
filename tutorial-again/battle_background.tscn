@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://yj0504xxcjb5"]
+
+[ext_resource type="Texture2D" uid="uid://y1vgsat8o32k" path="res://forest.png" id="1_kkvjj"]
+
+[node name="battle_background" type="Node2D" unique_id=1380217646]
+z_index = -10
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=2071691692]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = -57.0
+offset_top = -23.0
+offset_right = 124.0
+offset_bottom = 488.0
+color = Color(0, 0, 0, 1)
+
+[node name="Forest" type="Sprite2D" parent="." unique_id=1810700421]
+position = Vector2(335.40625, 147.66411)
+scale = Vector2(2.0920966, 1.8879563)
+texture = ExtResource("1_kkvjj")

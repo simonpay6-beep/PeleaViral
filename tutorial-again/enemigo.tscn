@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dac3kslolju4e"]
+
+[ext_resource type="Script" uid="uid://br5oxv1cyls7a" path="res://enemigo.gd" id="1_becj5"]
+[ext_resource type="Texture2D" uid="uid://tjhdtkipo04j" path="res://assets/sprites/animations;lv1/kick_blocked1.png" id="2_m2jpo"]
+[ext_resource type="Texture2D" uid="uid://bewuquar4mgtk" path="res://assets/sprites/animations;lv1/kick_blocked2.png" id="3_l0i0t"]
+[ext_resource type="Texture2D" uid="uid://c882m2ao4tbex" path="res://assets/sprites/animations;lv1/punch_blocked1.png" id="4_dqy3p"]
+[ext_resource type="Texture2D" uid="uid://bpkap0fpk6ym2" path="res://assets/sprites/animations;lv1/punch_blocked2.png" id="5_mk1k5"]
+[ext_resource type="Texture2D" uid="uid://dxgt2fm2v0uqc" path="res://assets/sprites/animations;lv1/idle1.png" id="6_y22wv"]
+[ext_resource type="Texture2D" uid="uid://csc1nsir432yb" path="res://assets/sprites/animations;lv1/idle2.png" id="7_uubak"]
+[ext_resource type="Texture2D" uid="uid://ube7ifyrueob" path="res://assets/sprites/animations;lv1/prepare_kick1.png" id="8_dumfu"]
+[ext_resource type="Texture2D" uid="uid://cdnh8p88vj8uh" path="res://assets/sprites/animations;lv1/prepare_kick2.png" id="9_101al"]
+[ext_resource type="Texture2D" uid="uid://c8h5me0w27dt0" path="res://assets/sprites/animations;lv1/prepare_kick3.png" id="10_lik12"]
+[ext_resource type="Texture2D" uid="uid://di18bvapsygy6" path="res://assets/sprites/animations;lv1/prepare_punch1.png" id="11_eoj2m"]
+[ext_resource type="Texture2D" uid="uid://dpnuqa5auoq70" path="res://assets/sprites/animations;lv1/prepare_punch2.png" id="12_5ndga"]
+[ext_resource type="Texture2D" uid="uid://buxcysqxihoew" path="res://assets/sprites/animations;lv1/prepare_punch3.png" id="13_01y73"]
+[ext_resource type="Texture2D" uid="uid://boqrkf5an2w5v" path="res://assets/sprites/animations;lv1/kick.png" id="14_ydsxq"]
+[ext_resource type="Texture2D" uid="uid://o8o2iaoo3xkh" path="res://assets/sprites/animations;lv1/punch.png" id="15_gbaay"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a6nnv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m2jpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l0i0t")
+}],
+"loop": 1,
+"name": &"blocked_kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dqy3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mk1k5")
+}],
+"loop": 1,
+"name": &"blocked_punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_y22wv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uubak")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dumfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_101al")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lik12")
+}],
+"loop": 1,
+"name": &"preparing_kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_eoj2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5ndga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_01y73")
+}],
+"loop": 1,
+"name": &"preparing_punch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ydsxq")
+}],
+"loop": 1,
+"name": &"successful_kick",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_gbaay")
+}],
+"loop": 1,
+"name": &"successful_punch",
+"speed": 5.0
+}]
+
+[node name="enemigo" type="Node2D" unique_id=933832438]
+z_index = 5
+script = ExtResource("1_becj5")
+
+[node name="Tiempo_antes_de_cargar" type="Timer" parent="." unique_id=642864722]
+process_callback = 0
+autostart = true
+
+[node name="Tiempo_de_carga" type="Timer" parent="." unique_id=1827807875]
+process_callback = 0
+wait_time = 2.0
+
+[node name="Tiempo_aturdido" type="Timer" parent="." unique_id=415542447]
+process_callback = 0
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1777267442]
+z_index = 3
+position = Vector2(202, 249)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_a6nnv")
+animation = &"blocked_kick"
+autoplay = "idle"
+frame_progress = 0.46713
+
+[connection signal="timeout" from="Tiempo_antes_de_cargar" to="." method="_on_tiempo_antes_de_cargar_timeout"]
+[connection signal="timeout" from="Tiempo_de_carga" to="." method="_on_tiempo_de_carga_timeout"]
+[connection signal="timeout" from="Tiempo_aturdido" to="." method="_on_tiempo_aturdido_timeout"]
