@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://colu3xfss3wid"]
+
+[ext_resource type="Script" uid="uid://bep0ban3rlkkh" path="res://video_results.gd" id="1_o7rh1"]
+
+[node name="VideoResults" type="Control" unique_id=758182231]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o7rh1")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1239779790]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.01
+anchor_bottom = 1.0
+offset_right = -0.2000122
+offset_bottom = 5.0
+color = Color(0, 0, 0, 1)
+
+[node name="ContentCenter" type="CenterContainer" parent="." unique_id=1717128459]
+layout_mode = 0
+offset_right = 724.0
+offset_bottom = 485.0
+
+[node name="ResultsPanel" type="PanelContainer" parent="ContentCenter" unique_id=10024639]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="ContentCenter/ResultsPanel" unique_id=299698239]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContentCenter/ResultsPanel/Margin" unique_id=520075428]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=1522054503]
+layout_mode = 2
+text = "¡STREAM FINALIZADO!"
+
+[node name="VideoTitleLabel" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=68492745]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=1719952828]
+layout_mode = 2
+
+[node name="StatsGrid" type="GridContainer" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=1236924895]
+layout_mode = 2
+columns = 2
+
+[node name="ViewsTitle" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer/StatsGrid" unique_id=1957116057]
+layout_mode = 2
+text = "Espectadores logrados:"
+
+[node name="ViewsValue" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer/StatsGrid" unique_id=652906966]
+layout_mode = 2
+
+[node name="SubsTitle" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer/StatsGrid" unique_id=1401941579]
+layout_mode = 2
+text = "Nuevos Suscriptores:"
+
+[node name="SubsValue" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer/StatsGrid" unique_id=1858087956]
+layout_mode = 2
+
+[node name="PointsTitle" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer/StatsGrid" unique_id=963184785]
+layout_mode = 2
+text = "Puntos del video:"
+
+[node name="PointsValue" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer/StatsGrid" unique_id=617760936]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=711162240]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=1328408236]
+layout_mode = 2
+
+[node name="ActionButton" type="Button" parent="ContentCenter/ResultsPanel/Margin/VBoxContainer" unique_id=174752902]
+layout_mode = 2
+
+[node name="CreditsOverlay" type="ColorRect" parent="." unique_id=30831203]
+visible = false
+layout_mode = 0
+offset_right = 724.0
+offset_bottom = 487.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="CreditsOverlay" unique_id=409447535]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsOverlay/CenterContainer" unique_id=1727324391]
+layout_mode = 2
+
+[node name="VictoryTitle" type="Label" parent="CreditsOverlay/CenterContainer/VBoxContainer" unique_id=2029249140]
+layout_mode = 2
+text = "llegaste muy lejos..."
+
+[node name="FinalStatsLabel" type="Label" parent="CreditsOverlay/CenterContainer/VBoxContainer" unique_id=1591573510]
+layout_mode = 2
+
+[node name="CreditsLabel" type="Label" parent="CreditsOverlay/CenterContainer/VBoxContainer" unique_id=1928581334]
+layout_mode = 2
+
+[node name="RestartButton" type="Button" parent="CreditsOverlay/CenterContainer/VBoxContainer" unique_id=931272881]
+layout_mode = 2

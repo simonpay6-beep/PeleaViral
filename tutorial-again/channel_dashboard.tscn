@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://b2yan8etxbjdx"]
+
+[ext_resource type="Script" uid="uid://7d2o8ge4bwel" path="res://channel_dashboard.gd" id="1_3scej"]
+
+[node name="ChannelDashboard" type="Control" unique_id=1654918557]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3scej")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1260686823]
+layout_mode = 0
+offset_right = 727.0
+offset_bottom = 488.0
+color = Color(0.3118496, 0.31184962, 0.3118496, 1)
+
+[node name="MainVBox" type="VBoxContainer" parent="." unique_id=1784433328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopProfileBar" type="HBoxContainer" parent="MainVBox" unique_id=1892705069]
+layout_mode = 2
+
+[node name="AvatarDisplay" type="TextureRect" parent="MainVBox/TopProfileBar" unique_id=1289579976]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="ChannelInfoVBox" type="VBoxContainer" parent="MainVBox/TopProfileBar" unique_id=184342474]
+layout_mode = 2
+
+[node name="ChannelNameLabel" type="Label" parent="MainVBox/TopProfileBar/ChannelInfoVBox" unique_id=1273201360]
+layout_mode = 2
+
+[node name="StatsLabel" type="Label" parent="MainVBox/TopProfileBar/ChannelInfoVBox" unique_id=367368942]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="MainVBox" unique_id=1539565717]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="MainVBox" unique_id=828488290]
+layout_mode = 2
+
+[node name="ConfigCenter" type="CenterContainer" parent="MainVBox" unique_id=1933924606]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConfigPanel" type="PanelContainer" parent="MainVBox/ConfigCenter" unique_id=508922579]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainVBox/ConfigCenter/ConfigPanel" unique_id=869294124]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainVBox/ConfigCenter/ConfigPanel/Margin" unique_id=1804411206]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=315144136]
+layout_mode = 2
+text = "Configurar Nueva Transmisión"
+
+[node name="CurrentVideoBadge" type="Label" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=428775008]
+layout_mode = 2
+text = "Video #1 / 3"
+
+[node name="TitleHeading" type="Label" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=351181532]
+layout_mode = 2
+text = "Título del video:"
+
+[node name="VideoTitleInput" type="LineEdit" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=644926270]
+layout_mode = 2
+
+[node name="FilterHeading" type="Label" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=144627294]
+layout_mode = 2
+text = "Filtro de cámara:"
+
+[node name="FilterOptions" type="OptionButton" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=1780363790]
+layout_mode = 2
+
+[node name="DifficultyHeading" type="Label" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=1188765652]
+layout_mode = 2
+text = "Dificultad de la pelea:"
+
+[node name="DifficultyOptions" type="OptionButton" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=1521058053]
+layout_mode = 2
+
+[node name="StartLiveButton" type="Button" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=1491678123]
+layout_mode = 2
+text = "Iniciar Live"
+
+[node name="IntroAnimationOverlay" type="ColorRect" parent="." unique_id=913939210]
+layout_mode = 0
+offset_right = 724.0
+offset_bottom = 484.0
+color = Color(0.003921569, 0.003921569, 0.003921569, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="IntroAnimationOverlay" unique_id=2079861322]
+layout_mode = 0
+offset_right = 722.0
+offset_bottom = 484.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IntroAnimationOverlay/CenterContainer" unique_id=491833294]
+layout_mode = 2
+
+[node name="ProtagonistStatusLabel" type="Label" parent="IntroAnimationOverlay/CenterContainer/VBoxContainer" unique_id=23120691]
+layout_mode = 2
+
+[node name="SubtextLabel" type="Label" parent="IntroAnimationOverlay/CenterContainer/VBoxContainer" unique_id=526723076]
+layout_mode = 2

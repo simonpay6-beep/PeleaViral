@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://11sqr143tvjj"]
+
+[ext_resource type="Script" uid="uid://cddf4jjjijdyy" path="res://phone_intro.gd" id="1_66123"]
+
+[node name="phone_intro" type="Control" unique_id=210998336]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_66123")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1729425038]
+layout_mode = 0
+offset_right = 721.0
+offset_bottom = 481.0
+color = Color(0.00032338224, 1.504086e-09, 0.06426834, 1)
+
+[node name="PhoneContainer" type="CenterContainer" parent="." unique_id=43859375]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 4.0
+offset_right = 724.0
+offset_bottom = 480.0
+
+[node name="PhoneButton" type="TextureButton" parent="PhoneContainer" unique_id=2105554866]
+layout_mode = 2
+
+[node name="ScreenLight" type="Sprite2D" parent="PhoneContainer/PhoneButton" unique_id=1114366042]
+light_mask = 12417
+
+[node name="PhoneLabel" type="Label" parent="PhoneContainer/PhoneButton" unique_id=397792355]
+layout_mode = 0
+offset_left = -121.0
+offset_top = 47.0
+offset_right = 123.0
+offset_bottom = 70.0
+text = "Toca el teléfono"
+
+[node name="StoryPanel" type="PanelContainer" parent="." unique_id=1746775011]
+layout_mode = 0
+offset_top = 409.0
+offset_right = 721.0
+offset_bottom = 478.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StoryPanel" unique_id=1321287111]
+visible = false
+layout_mode = 2
+
+[node name="StoryText" type="RichTextLabel" parent="StoryPanel/VBoxContainer" unique_id=407045836]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="StoryPanel/VBoxContainer" unique_id=812412315]
+layout_mode = 2
+text = "Entrar a NeTube"
+
+[node name="FlashOverlay" type="ColorRect" parent="." unique_id=194331518]
+layout_mode = 0
+offset_right = 725.0
+offset_bottom = 484.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)

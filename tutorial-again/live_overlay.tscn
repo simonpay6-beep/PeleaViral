@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://b1ogbr878s1is"]
+
+[ext_resource type="Script" uid="uid://bo7fv5a4a5s15" path="res://live_overlay.gd" id="1_f1fpj"]
+
+[node name="LiveOverlay" type="CanvasLayer" unique_id=1720875601]
+script = ExtResource("1_f1fpj")
+
+[node name="HUDControl" type="Control" parent="." unique_id=45141824]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 719.0
+offset_bottom = 482.0
+
+[node name="TopStreamBar" type="PanelContainer" parent="HUDControl" unique_id=1640474885]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.18
+offset_bottom = 0.23999786
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUDControl/TopStreamBar" unique_id=2102090562]
+layout_mode = 2
+
+[node name="LiveBadge" type="Label" parent="HUDControl/TopStreamBar/HBoxContainer" unique_id=509384316]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9333264, 4.813075e-06, 9.62615e-07, 1)
+text = "EN VIVO"
+
+[node name="StreamTitleLabel" type="Label" parent="HUDControl/TopStreamBar/HBoxContainer" unique_id=1365772602]
+layout_mode = 2
+text = "Pelea Callejera Salvaje"
+
+[node name="Spacer" type="Control" parent="HUDControl/TopStreamBar/HBoxContainer" unique_id=623704667]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ViewersLabel" type="Label" parent="HUDControl/TopStreamBar/HBoxContainer" unique_id=286538718]
+layout_mode = 2
+text = "15 viewers"
+
+[node name="PointsLabel" type="Label" parent="HUDControl/TopStreamBar/HBoxContainer" unique_id=887604272]
+layout_mode = 2
+text = "0 pts"
+
+[node name="ChatBoxContainer" type="PanelContainer" parent="HUDControl" unique_id=866734186]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.63600004
+anchor_top = 0.53300005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.2840271
+offset_top = 0.09396362
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUDControl/ChatBoxContainer" unique_id=1387636843]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUDControl/ChatBoxContainer/MarginContainer" unique_id=1236136651]
+layout_mode = 2
+
+[node name="ChatHeader" type="Label" parent="HUDControl/ChatBoxContainer/MarginContainer/VBoxContainer" unique_id=1740888179]
+layout_mode = 2
+text = "Chat del directo"
+
+[node name="ChatScroll" type="ScrollContainer" parent="HUDControl/ChatBoxContainer/MarginContainer/VBoxContainer" unique_id=1727155085]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChatMessages" type="VBoxContainer" parent="HUDControl/ChatBoxContainer/MarginContainer/VBoxContainer/ChatScroll" unique_id=2324453]
+layout_mode = 2
+
+[node name="ComboNoticeLabel" type="Label" parent="HUDControl" unique_id=770958322]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.35500002
+anchor_right = 1.0
+anchor_bottom = 0.402
+offset_top = -0.11001587
+offset_right = -5.0
+offset_bottom = 0.23599243

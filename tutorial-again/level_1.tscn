@@ -33,6 +33,15 @@ script = ExtResource("1_5hph3")
 [node name="Logica" type="Node2D" parent="StateManager" unique_id=2087126969]
 
 [node name="scoreboard" parent="StateManager/Logica" unique_id=1855818494 instance=ExtResource("2_hn12h")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -4.0
+offset_top = -12.0
+offset_right = -4.0
+offset_bottom = -12.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Arte" type="Node2D" parent="StateManager" unique_id=455909849]
 

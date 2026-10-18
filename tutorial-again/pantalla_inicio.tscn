@@ -7,33 +7,33 @@
 script = ExtResource("1_deuh0")
 
 [node name="Pv" type="Sprite2D" parent="." unique_id=2126799789]
-position = Vector2(361, 239.49998)
-scale = Vector2(0.3760417, 0.44907403)
+position = Vector2(642.99994, 355.99997)
+scale = Vector2(0.66979164, 0.66481483)
 texture = ExtResource("1_70vh5")
 
 [node name="JUGAR" type="Button" parent="." unique_id=199153727]
-offset_left = 32.0
-offset_top = 266.0
-offset_right = 217.0
-offset_bottom = 304.0
+offset_left = 133.0
+offset_top = 405.0
+offset_right = 318.0
+offset_bottom = 443.0
 
 [node name="INSTRUCCIONES" type="Button" parent="." unique_id=482693301]
-offset_left = 37.0
-offset_top = 325.0
-offset_right = 210.0
-offset_bottom = 373.0
+offset_left = 117.0
+offset_top = 495.0
+offset_right = 290.0
+offset_bottom = 543.0
 
 [node name="CREDITOS" type="Button" parent="." unique_id=740686969]
-offset_left = 42.0
-offset_top = 387.0
-offset_right = 207.0
-offset_bottom = 426.0
+offset_left = 132.0
+offset_top = 592.0
+offset_right = 297.0
+offset_bottom = 631.0
 
 [node name="SALIR" type="Button" parent="." unique_id=2144301348]
-offset_left = 35.0
-offset_top = 438.0
-offset_right = 216.0
-offset_bottom = 473.0
+offset_left = 109.0
+offset_top = 658.0
+offset_right = 290.0
+offset_bottom = 693.0
 
 [connection signal="pressed" from="JUGAR" to="." method="_on_jugar_pressed"]
 [connection signal="pressed" from="INSTRUCCIONES" to="." method="_on_instrucciones_pressed"]

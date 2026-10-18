@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://8mj43q7apstc"]
+
+[ext_resource type="Script" uid="uid://c7nbx5f620jba" path="res://netube_platform.gd" id="1_dneal"]
+
+[node name="NetubePlatform" type="Control" unique_id=642937186]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dneal")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1923321010]
+layout_mode = 0
+offset_right = 719.0
+offset_bottom = 478.0
+color = Color(0.24356923, 0.24356923, 0.24356923, 1)
+
+[node name="HeaderBar" type="PanelContainer" parent="." unique_id=1906901157]
+layout_mode = 0
+offset_right = 719.0
+offset_bottom = 54.0
+
+[node name="HeaderHBox" type="HBoxContainer" parent="HeaderBar" unique_id=1981782875]
+layout_mode = 2
+
+[node name="LogoLabel" type="Label" parent="HeaderBar/HeaderHBox" unique_id=1421942619]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85882056, 0, 0, 1)
+text = "NeTube"
+
+[node name="MainContent" type="CenterContainer" parent="." unique_id=2121606247]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 719.0
+offset_bottom = 481.0
+
+[node name="CreateChannelPanel" type="PanelContainer" parent="MainContent" unique_id=54659232]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContent/CreateChannelPanel" unique_id=710219281]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContent/CreateChannelPanel/MarginContainer" unique_id=1253309286]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=1365681770]
+layout_mode = 2
+text = "Crear tu canal"
+
+[node name="NameLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=2003537048]
+layout_mode = 2
+text = "Nombre del canal:"
+
+[node name="NameInput" type="LineEdit" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=406558617]
+layout_mode = 2
+placeholder_text = "Ej: ProGamer99"
+max_length = 16
+
+[node name="AvatarLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=1512441358]
+layout_mode = 2
+text = "Elige tu foto de perfil:"
+
+[node name="AvatarGrid" type="HBoxContainer" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=2121231958]
+layout_mode = 2
+
+[node name="AvatarBtn1" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer/AvatarGrid" unique_id=1127036897]
+layout_mode = 2
+text = "Pollo"
+
+[node name="AvatarBtn2" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer/AvatarGrid" unique_id=1177352737]
+layout_mode = 2
+text = "Luchador"
+
+[node name="AvatarBtn3" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer/AvatarGrid" unique_id=681689027]
+layout_mode = 2
+text = "Mosca"
+
+[node name="SelectedPreview" type="TextureRect" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=283153108]
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ErrorLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=1511939258]
+visible = false
+layout_mode = 2
+text = "Escribe un nombre"
+
+[node name="ConfirmButton" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=307044242]
+layout_mode = 2
+text = "Crear canal y continuar"

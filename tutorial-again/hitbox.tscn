@@ -9,11 +9,13 @@ anchors_preset = 0
 
 [node name="Button" type="Button" parent="." unique_id=281912998]
 layout_mode = 0
-offset_right = 298.0
-offset_bottom = 202.0
+offset_left = -8.0
+offset_top = 5.0
+offset_right = 290.0
+offset_bottom = 207.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=569084932]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1445995487]
-position = Vector2(142.5, 104)
+position = Vector2(140, 96)
 shape = SubResource("RectangleShape2D_a6nnv")
