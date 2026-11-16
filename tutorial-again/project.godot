@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PeleaViral"
-run/main_scene="uid://dxdfnl6ikvkas"
+run/main_scene="uid://11sqr143tvjj"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

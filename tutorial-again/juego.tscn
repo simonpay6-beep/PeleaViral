@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cpey7o8q8p5aq"]
+
+[ext_resource type="Script" uid="uid://lcueqk7cgkvo" path="res://fightSystem.gd" id="1_g3dr0"]
+[ext_resource type="PackedScene" uid="uid://b1ogbr878s1is" path="res://live_overlay.tscn" id="2_gvuhb"]
+
+[node name="juego" type="Control" unique_id=1509632039]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3dr0")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1216933663]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnemigoSprite" type="AnimatedSprite2D" parent="." unique_id=542220496]
+
+[node name="UI_Combate" type="Control" parent="." unique_id=684709514]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TituloNivel" type="Label" parent="UI_Combate" unique_id=1111255818]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VidaEnemigo" type="ProgressBar" parent="UI_Combate" unique_id=1917971651]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="DialogoEnemigo" type="Label" parent="UI_Combate" unique_id=25313192]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 25.0
+
+[node name="EstadoEnemigoTexto" type="Label" parent="UI_Combate" unique_id=2080538649]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="VidaJugador" type="ProgressBar" parent="UI_Combate" unique_id=801252177]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="EstadoJugadorTexto" type="Label" parent="UI_Combate" unique_id=57232710]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LiveOverlay" parent="UI_Combate" unique_id=1720875601 instance=ExtResource("2_gvuhb")]
+
+[node name="PantallaCinematica" type="ColorRect" parent="." unique_id=1837072432]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextoCinematica" type="Label" parent="PantallaCinematica" unique_id=1372710373]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

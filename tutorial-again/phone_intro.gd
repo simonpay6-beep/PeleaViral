@@ -1,10 +1,10 @@
 extends Control
 
 @onready var phone_container: CenterContainer = $PhoneContainer
-@onready var phone_button: Button = $PhoneContainer/PhoneButton
-@onready var screen_light: ColorRect = $PhoneContainer/PhoneButton/ScreenLight
+@onready var phone_button: TextureButton = $PhoneContainer/PhoneButton
+@onready var screen_light: Sprite2D = $PhoneContainer/PhoneButton/ScreenLight
 @onready var story_panel: PanelContainer = $StoryPanel
-@onready var story_text: Label = $StoryPanel/VBoxContainer/StoryText
+@onready var story_text: RichTextLabel = $StoryPanel/VBoxContainer/StoryText
 @onready var continue_button: Button = $StoryPanel/VBoxContainer/ContinueButton
 @onready var flash_overlay: ColorRect = $FlashOverlay
 

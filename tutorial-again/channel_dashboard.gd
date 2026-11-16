@@ -97,5 +97,5 @@ func _play_pre_stream_intro() -> void:
 	tween.tween_interval(1.2)
 	tween.tween_property(intro_overlay, "color:a", 1.0, 0.3)
 	tween.tween_callback(func():
-		get_tree().change_scene_to_file("res://fight_beta_2.tscn")
+		get_tree().change_scene_to_file("res://Juego.tscn")
 	)
