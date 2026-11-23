@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://8mj43q7apstc"]
 
+[ext_resource type="Texture2D" path="res://assets/fondos/escritorio.png" id="99_escritorio"]
 [ext_resource type="Script" uid="uid://c7nbx5f620jba" path="res://netube_platform.gd" id="1_dneal"]
 
 [node name="NetubePlatform" type="Control" unique_id=642937186]
@@ -12,15 +13,32 @@ grow_vertical = 2
 script = ExtResource("1_dneal")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1923321010]
-layout_mode = 0
-offset_right = 719.0
-offset_bottom = 478.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.24356923, 0.24356923, 0.24356923, 1)
 
+[node name="ImagenEscritorio" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("99_escritorio")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="HeaderBar" type="PanelContainer" parent="." unique_id=1906901157]
-layout_mode = 0
-offset_right = 719.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 54.0
+grow_horizontal = 2
 
 [node name="HeaderHBox" type="HBoxContainer" parent="HeaderBar" unique_id=1981782875]
 layout_mode = 2
@@ -31,11 +49,12 @@ theme_override_colors/font_color = Color(0.85882056, 0, 0, 1)
 text = "NeTube"
 
 [node name="MainContent" type="CenterContainer" parent="." unique_id=2121606247]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -3.0
-offset_right = 719.0
-offset_bottom = 481.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CreateChannelPanel" type="PanelContainer" parent="MainContent" unique_id=54659232]
 layout_mode = 2

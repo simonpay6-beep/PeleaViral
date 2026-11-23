@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://11sqr143tvjj"]
 
+[ext_resource type="Texture2D" path="res://assets/fondos/escritorio.png" id="99_escritorio"]
 [ext_resource type="Script" uid="uid://cddf4jjjijdyy" path="res://phone_intro.gd" id="1_66123"]
+
+[sub_resource type="Gradient" id="Gradient_glow"]
+offsets = PackedFloat32Array(0, 1)
+colors = PackedColorArray(0.55, 0.8, 1, 1, 0.55, 0.8, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_glow"]
+gradient = SubResource("Gradient_glow")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+width = 256
+height = 256
 
 [node name="phone_intro" type="Control" unique_id=210998336]
 layout_mode = 3
@@ -12,52 +25,106 @@ grow_vertical = 2
 script = ExtResource("1_66123")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1729425038]
-layout_mode = 0
-offset_right = 721.0
-offset_bottom = 481.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.00032338224, 1.504086e-09, 0.06426834, 1)
 
+[node name="ImagenEscritorio" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("99_escritorio")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="PhoneContainer" type="CenterContainer" parent="." unique_id=43859375]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 4.0
-offset_right = 724.0
-offset_bottom = 480.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="PhoneButton" type="TextureButton" parent="PhoneContainer" unique_id=2105554866]
+custom_minimum_size = Vector2(180, 320)
 layout_mode = 2
 
-[node name="ScreenLight" type="Sprite2D" parent="PhoneContainer/PhoneButton" unique_id=1114366042]
-light_mask = 12417
+[node name="PhoneBody" type="ColorRect" parent="PhoneContainer/PhoneButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12, 0.12, 0.15, 1)
 
-[node name="PhoneLabel" type="Label" parent="PhoneContainer/PhoneButton" unique_id=397792355]
+[node name="PhoneScreen" type="ColorRect" parent="PhoneContainer/PhoneButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 24.0
+offset_right = -10.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.03, 0.04, 0.12, 1)
+
+[node name="ScreenLight" type="Sprite2D" parent="PhoneContainer/PhoneButton"]
+position = Vector2(90, 160)
+scale = Vector2(0.65, 1.1)
+texture = SubResource("GradientTexture2D_glow")
+
+[node name="PhoneLabel" type="Label" parent="PhoneContainer/PhoneButton"]
 layout_mode = 0
-offset_left = -121.0
-offset_top = 47.0
-offset_right = 123.0
-offset_bottom = 70.0
+offset_left = -30.0
+offset_top = 332.0
+offset_right = 210.0
+offset_bottom = 355.0
+mouse_filter = 2
 text = "Toca el teléfono"
+horizontal_alignment = 1
 
 [node name="StoryPanel" type="PanelContainer" parent="." unique_id=1746775011]
-layout_mode = 0
-offset_top = 409.0
-offset_right = 721.0
-offset_bottom = 478.0
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StoryPanel" unique_id=1321287111]
-visible = false
 layout_mode = 2
 
 [node name="StoryText" type="RichTextLabel" parent="StoryPanel/VBoxContainer" unique_id=407045836]
 layout_mode = 2
+custom_minimum_size = Vector2(0, 70)
+fit_content = true
+scroll_active = false
 
 [node name="ContinueButton" type="Button" parent="StoryPanel/VBoxContainer" unique_id=812412315]
 layout_mode = 2
 text = "Entrar a NeTube"
 
 [node name="FlashOverlay" type="ColorRect" parent="." unique_id=194331518]
-layout_mode = 0
-offset_right = 725.0
-offset_bottom = 484.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 1, 1, 0)

@@ -14,7 +14,10 @@ var story_lines: Array[String] = [
 	"El algoritmo es salvaje y la competencia no perdona.",
 	"Tu única salida: prender cámara en NeTube y demostrar tus reflejos en vivo."
 ]
-var current_story_index: int = 0
+## Páginas de la historia en una lista doblemente enlazada (TAD ListaDoble):
+## "Siguiente" avanza y "Anterior" retrocede, ambos en O(1).
+var historia: ListaDoble = ListaDoble.desde(story_lines)
+var back_button: Button
 var is_phone_activated: bool = false
 
 func _ready() -> void:
@@ -25,6 +28,14 @@ func _ready() -> void:
 	
 	phone_button.pressed.connect(_on_phone_clicked)
 	continue_button.pressed.connect(_on_continue_story_pressed)
+
+	# Botón "Anterior" creado por código, justo antes de "Siguiente".
+	back_button = Button.new()
+	back_button.text = "Anterior"
+	back_button.visible = false
+	back_button.pressed.connect(_on_back_story_pressed)
+	continue_button.get_parent().add_child(back_button)
+	continue_button.get_parent().move_child(back_button, continue_button.get_index())
 
 func _on_phone_clicked() -> void:
 	if is_phone_activated:
@@ -49,32 +60,39 @@ func _on_phone_clicked() -> void:
 
 func _start_story_intro() -> void:
 	story_panel.visible = true
-	current_story_index = 0
+	historia.ir_al_inicio()
 	_show_current_story_line()
 
 func _show_current_story_line() -> void:
-	story_text.text = story_lines[current_story_index]
+	story_text.text = str(historia.actual())
+	back_button.visible = historia.hay_anterior()
 	
 	story_text.modulate.a = 0.0
 	var text_tween: Tween = create_tween()
 	text_tween.tween_property(story_text, "modulate:a", 1.0, 0.25)
 	
-	if current_story_index == story_lines.size() - 1:
+	if not historia.hay_siguiente():
 		continue_button.text = "Abrir NeTube"
 	else:
 		continue_button.text = "Siguiente"
 
 func _on_continue_story_pressed() -> void:
-	current_story_index += 1
-	if current_story_index < story_lines.size():
+	if historia.hay_siguiente():
+		historia.avanzar()
 		_show_current_story_line()
 	else:
 		_transition_to_netube()
 
+
+func _on_back_story_pressed() -> void:
+	historia.retroceder()
+	_show_current_story_line()
+
 func _transition_to_netube() -> void:
 	continue_button.disabled = true
+	back_button.disabled = true
 	var exit_tween: Tween = create_tween()
 	exit_tween.tween_property(flash_overlay, "color:a", 1.0, 0.35)
 	exit_tween.tween_callback(func():
-		get_tree().change_scene_to_file("res://netube_platform.tscn")
+		SceneRouter.go(SceneRouter.NETUBE)
 		)

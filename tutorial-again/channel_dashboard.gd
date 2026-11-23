@@ -23,6 +23,19 @@ func _ready() -> void:
 	_populate_dropdowns()
 	
 	start_live_button.pressed.connect(_on_start_live_pressed)
+	_animar_entrada()
+
+
+## El panel aparece con un rebote, estilo dibujos animados.
+func _animar_entrada() -> void:
+	var panel: PanelContainer = $MainVBox/ConfigCenter/ConfigPanel
+	panel.modulate.a = 0.0
+	panel.scale = Vector2(0.9, 0.9)
+	await get_tree().process_frame
+	panel.pivot_offset = panel.size / 2.0
+	var t: Tween = create_tween().set_parallel(true)
+	t.tween_property(panel, "modulate:a", 1.0, 0.25)
+	t.tween_property(panel, "scale", Vector2.ONE, 0.4).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _load_channel_data() -> void:
 	channel_name_label.text = ChannelData.channel_name
@@ -43,6 +56,13 @@ func _populate_dropdowns() -> void:
 	filter_options.add_item("Sepia Retro")
 	filter_options.add_item("Blanco y Negro")
 	filter_options.add_item("Cyber Glitch")
+	# Accesibilidad: filtros de corrección de color para personas con daltonismo.
+	for modo in Accesibilidad.MODOS:
+		filter_options.add_item(modo)
+	# Recuerda el filtro elegido en el video anterior.
+	for i in filter_options.item_count:
+		if filter_options.get_item_text(i) == ChannelData.selected_filter:
+			filter_options.select(i)
 	
 	difficulty_options.clear()
 	difficulty_options.add_item("Fácil (Enemigo lento, menos views)")
@@ -58,6 +78,7 @@ func _on_start_live_pressed() -> void:
 		ChannelData.video_title = "Transmisión Sin Título"
 	
 	ChannelData.selected_filter = filter_options.get_item_text(filter_options.selected)
+	Accesibilidad.aplicar(ChannelData.selected_filter)
 	
 	match difficulty_options.selected:
 		0:
@@ -97,5 +118,5 @@ func _play_pre_stream_intro() -> void:
 	tween.tween_interval(1.2)
 	tween.tween_property(intro_overlay, "color:a", 1.0, 0.3)
 	tween.tween_callback(func():
-		get_tree().change_scene_to_file("res://Juego.tscn")
+		SceneRouter.go(SceneRouter.JUEGO)
 	)

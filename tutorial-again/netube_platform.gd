@@ -61,4 +61,4 @@ func _on_confirm_pressed() -> void:
 	
 	ChannelData.channel_profile_updated.emit()
 	
-	get_tree().change_scene_to_file("res://channel_dashboard.tscn")
+	SceneRouter.go(SceneRouter.ADMIN_CANAL)

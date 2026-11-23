@@ -1,0 +1,230 @@
+[gd_resource type="SpriteFrames" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/idle1.png" id="1_idle1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/idle2.png" id="2_idle2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/prepare_punch1.png" id="3_prepare_punch1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/prepare_punch2.png" id="4_prepare_punch2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/prepare_punch3.png" id="5_prepare_punch3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/punch.png" id="6_punch"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/punch_blocked1.png" id="7_punch_blocked1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/punch_blocked2.png" id="8_punch_blocked2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/prepare_kick1.png" id="9_prepare_kick1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/prepare_kick2.png" id="10_prepare_kick2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/prepare_kick3.png" id="11_prepare_kick3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/kick.png" id="12_kick"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/kick_blocked1.png" id="13_kick_blocked1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/kick_blocked2.png" id="14_kick_blocked2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/muelto.png" id="15_muelto"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/moscas1.png" id="16_moscas1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/moscas2.png" id="17_moscas2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_idle1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_idle2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_prepare_punch1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_prepare_punch2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_prepare_punch3")
+}],
+"loop": false,
+"name": &"golpe_preparar",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_punch")
+}],
+"loop": false,
+"name": &"golpe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_punch_blocked1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_punch_blocked2")
+}],
+"loop": true,
+"name": &"golpe_bloqueo",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_prepare_punch3")
+}],
+"loop": false,
+"name": &"golpe_fallo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_prepare_punch1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_prepare_punch2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_prepare_punch3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_prepare_punch3")
+}],
+"loop": false,
+"name": &"golpe_fuerte_preparar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_punch")
+}],
+"loop": false,
+"name": &"golpe_fuerte",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_punch_blocked1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_punch_blocked2")
+}],
+"loop": true,
+"name": &"golpe_fuerte_bloqueo",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_prepare_punch3")
+}],
+"loop": false,
+"name": &"golpe_fuerte_fallo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_prepare_kick1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_prepare_kick2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_prepare_kick3")
+}],
+"loop": false,
+"name": &"patada_preparar",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_kick")
+}],
+"loop": false,
+"name": &"patada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_kick_blocked1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kick_blocked2")
+}],
+"loop": true,
+"name": &"patada_bloqueo",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_prepare_kick3")
+}],
+"loop": false,
+"name": &"patada_fallo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idle2")
+}],
+"loop": true,
+"name": &"bloqueo",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_idle1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_idle2")
+}],
+"loop": true,
+"name": &"risa",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idle2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_idle1")
+}],
+"loop": true,
+"name": &"burla",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_punch_blocked1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_punch_blocked2")
+}],
+"loop": true,
+"name": &"herido",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_idle1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_idle2")
+}],
+"loop": true,
+"name": &"noqueado",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_muelto")
+}],
+"loop": true,
+"name": &"en_el_piso",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_moscas1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_moscas2")
+}],
+"loop": true,
+"name": &"moscas",
+"speed": 6.0
+}]

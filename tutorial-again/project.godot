@@ -11,19 +11,25 @@ config_version=5
 [application]
 
 config/name="PeleaViral"
-run/main_scene="uid://11sqr143tvjj"
+run/main_scene="res://inicio.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
+EventBus="*res://event_bus.gd"
+SceneRouter="*res://scene_router.gd"
+Audio="*res://audio_manager.gd"
+Accesibilidad="*res://accesibilidad.gd"
 ChannelData="*uid://dv10bb1m8xubk"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=480
+window/size/viewport_width=1152
+window/size/viewport_height=648
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/ui/cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(20, 20)
 
 [input]
 

@@ -40,7 +40,7 @@ func _display_video_summary() -> void:
 
 func _on_action_button_pressed() -> void:
 	if ChannelData.current_video_index <= 3:
-		get_tree().change_scene_to_file("res://channel_dashboard.tscn")
+		SceneRouter.go(SceneRouter.ADMIN_CANAL)
 	else:
 		_show_credits()
 
@@ -59,9 +59,5 @@ func _show_credits() -> void:
 	tween.tween_property(credits_overlay, "modulate:a", 1.0, 0.5)
 
 func _on_restart_pressed() -> void:
-	ChannelData.total_subscribers = 0
-	ChannelData.total_views = 0
-	ChannelData.channel_points = 0
-	ChannelData.current_video_index = 1
-	
-	get_tree().change_scene_to_file("res://phone_intro.tscn")
+	ChannelData.reset_campaign()
+	SceneRouter.go(SceneRouter.INICIO_JUEGO)

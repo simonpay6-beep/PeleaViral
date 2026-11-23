@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://lcueqk7cgkvo" path="res://fightSystem.gd" id="1_g3dr0"]
 [ext_resource type="PackedScene" uid="uid://b1ogbr878s1is" path="res://live_overlay.tscn" id="2_gvuhb"]
+[ext_resource type="SpriteFrames" path="res://combat/enemigo_frames.tres" id="3_frames"]
+[ext_resource type="Script" path="res://manos_jugador.gd" id="4_manos"]
+[ext_resource type="Texture2D" path="res://assets/ui/puno.png" id="5_puno"]
+[ext_resource type="Texture2D" path="res://assets/ui/pie.png" id="6_pie"]
+[ext_resource type="Texture2D" path="res://forest.png" id="7_forest"]
+[ext_resource type="Texture2D" path="res://assets/ui/bateria_1.png" id="8_bateria"]
+[ext_resource type="PackedScene" path="res://controles_panel.tscn" id="9_controles"]
 
 [node name="juego" type="Control" unique_id=1509632039]
 layout_mode = 3
@@ -14,55 +21,195 @@ script = ExtResource("1_g3dr0")
 
 [node name="Fondo" type="ColorRect" parent="." unique_id=1216933663]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.07, 0.07, 0.11, 1)
+
+[node name="ImagenFondo" type="TextureRect" parent="Fondo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_right = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_forest")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="EnemigoSprite" type="AnimatedSprite2D" parent="." unique_id=542220496]
+position = Vector2(390, 310)
+scale = Vector2(0.34, 0.34)
+sprite_frames = ExtResource("3_frames")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Moscas" type="AnimatedSprite2D" parent="EnemigoSprite"]
+visible = false
+sprite_frames = ExtResource("3_frames")
+animation = &"moscas"
+
+[node name="ManosJugador" type="Node2D" parent="."]
+script = ExtResource("4_manos")
+
+[node name="PunoIzquierdo" type="Sprite2D" parent="ManosJugador"]
+position = Vector2(300, 585)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_puno")
+centered = false
+offset = Vector2(-1375, -300)
+
+[node name="PunoDerecho" type="Sprite2D" parent="ManosJugador"]
+position = Vector2(850, 585)
+scale = Vector2(-0.3, 0.3)
+texture = ExtResource("5_puno")
+centered = false
+offset = Vector2(-1375, -300)
+
+[node name="Pie" type="Sprite2D" parent="ManosJugador"]
+visible = false
+position = Vector2(560, 800)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_pie")
 
 [node name="UI_Combate" type="Control" parent="." unique_id=684709514]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="TituloNivel" type="Label" parent="UI_Combate" unique_id=1111255818]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 40.0
+offset_top = 18.0
+offset_right = 1110.0
+offset_bottom = 53.0
+horizontal_alignment = 0
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 
 [node name="VidaEnemigo" type="ProgressBar" parent="UI_Combate" unique_id=1917971651]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = 40.0
+offset_top = 65.0
+offset_right = 740.0
+offset_bottom = 95.0
+mouse_filter = 2
+max_value = 100.0
+value = 100.0
 
 [node name="DialogoEnemigo" type="Label" parent="UI_Combate" unique_id=25313192]
 layout_mode = 0
-offset_top = 2.0
-offset_right = 40.0
-offset_bottom = 25.0
+offset_left = 40.0
+offset_top = 105.0
+offset_right = 740.0
+offset_bottom = 170.0
+autowrap_mode = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 
 [node name="EstadoEnemigoTexto" type="Label" parent="UI_Combate" unique_id=2080538649]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 140.0
+offset_top = 230.0
+offset_right = 640.0
+offset_bottom = 350.0
+autowrap_mode = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 
 [node name="VidaJugador" type="ProgressBar" parent="UI_Combate" unique_id=801252177]
 layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+offset_left = 40.0
+offset_top = 570.0
+offset_right = 740.0
+offset_bottom = 606.0
+mouse_filter = 2
+max_value = 100.0
+value = 100.0
 
 [node name="EstadoJugadorTexto" type="Label" parent="UI_Combate" unique_id=57232710]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 40.0
+offset_top = 530.0
+offset_right = 740.0
+offset_bottom = 565.0
+autowrap_mode = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 
 [node name="LiveOverlay" parent="UI_Combate" unique_id=1720875601 instance=ExtResource("2_gvuhb")]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 65.0
+offset_right = 1140.0
+offset_bottom = 425.0
+
+[node name="BateriaJugador" type="TextureRect" parent="UI_Combate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 492.0
+offset_right = 225.0
+offset_bottom = 632.0
+mouse_filter = 2
+texture = ExtResource("8_bateria")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FlashDano" type="ColorRect" parent="UI_Combate"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.85, 0, 0, 0)
+
+[node name="PanelControles" parent="UI_Combate" instance=ExtResource("9_controles")]
+visible = false
+layout_mode = 0
+offset_left = 96.0
+offset_top = 40.0
+offset_right = 1056.0
+offset_bottom = 580.0
 
 [node name="PantallaCinematica" type="ColorRect" parent="." unique_id=1837072432]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0.93)
 
 [node name="TextoCinematica" type="Label" parent="PantallaCinematica" unique_id=1372710373]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 80.0
+offset_top = 60.0
+offset_right = 1072.0
+offset_bottom = 588.0
+autowrap_mode = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 24
+
+[connection signal="gui_input" from="PantallaCinematica" to="." method="_on_pantalla_cinematica_gui_input"]
+[connection signal="cerrado" from="UI_Combate/PanelControles" to="." method="_on_controles_cerrado"]

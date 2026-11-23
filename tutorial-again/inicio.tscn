@@ -1,0 +1,167 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://inicio.gd" id="1_inicio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/pv.png" id="2_portada"]
+[ext_resource type="PackedScene" path="res://controles_panel.tscn" id="3_controles"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_normal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(1, 1, 1, 0.16)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.85)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+bg_color = Color(1, 1, 1, 0.32)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[node name="Inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inicio")
+
+[node name="Portada" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_portada")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Jugar" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50
+offset_top = 356
+offset_right = 348
+offset_bottom = 414
+tooltip_text = "Empezar"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
+
+[node name="Instrucciones" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50
+offset_top = 444
+offset_right = 350
+offset_bottom = 502
+tooltip_text = "Cómo se juega"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
+
+[node name="Creditos" type="Button" parent="."]
+layout_mode = 0
+offset_left = 54
+offset_top = 520
+offset_right = 344
+offset_bottom = 570
+tooltip_text = "Créditos"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
+
+[node name="Salir" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50
+offset_top = 586
+offset_right = 348
+offset_bottom = 638
+tooltip_text = "Salir del juego"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
+
+[node name="CapaInstrucciones" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.82)
+
+[node name="Centro" type="CenterContainer" parent="CapaInstrucciones"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlesPanel" parent="CapaInstrucciones/Centro" instance=ExtResource("3_controles")]
+layout_mode = 2
+
+[node name="CapaCreditos" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.82)
+
+[node name="Centro" type="CenterContainer" parent="CapaCreditos"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CapaCreditos/Centro"]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="CapaCreditos/Centro/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="CapaCreditos/Centro/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Texto" type="Label" parent="CapaCreditos/Centro/Panel/Margin/VBox"]
+layout_mode = 2
+text = "PELEA VIRAL\n\nUn juego sobre la obsesión por la fama en internet.\nHecho con Godot 4.\nControl por cámara: Python + MediaPipe.\n\nGracias por jugar."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BotonCerrar" type="Button" parent="CapaCreditos/Centro/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Volver"
+
+[connection signal="pressed" from="Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="Instrucciones" to="." method="_on_instrucciones_pressed"]
+[connection signal="pressed" from="Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
+[connection signal="cerrado" from="CapaInstrucciones/Centro/ControlesPanel" to="." method="_on_controles_cerrado"]
+[connection signal="pressed" from="CapaCreditos/Centro/Panel/Margin/VBox/BotonCerrar" to="." method="_on_cerrar_creditos_pressed"]

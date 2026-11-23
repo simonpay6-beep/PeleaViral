@@ -29,6 +29,14 @@ func reset_live_session() -> void:
 	stats_updated.emit(current_live_views, current_video_points)
 
 
+## Reinicia toda la campaña (final del juego y botón de reiniciar de los créditos).
+func reset_campaign() -> void:
+	total_subscribers = 0
+	total_views = 0
+	channel_points = 0
+	current_video_index = 1
+
+
 func register_dodge() -> void:
 	consecutive_dodges += 1
 	var multiplier: int = 1

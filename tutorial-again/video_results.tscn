@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://colu3xfss3wid"]
 
+[ext_resource type="Texture2D" path="res://assets/fondos/escritorio.png" id="99_escritorio"]
 [ext_resource type="Script" uid="uid://bep0ban3rlkkh" path="res://video_results.gd" id="1_o7rh1"]
 
 [node name="VideoResults" type="Control" unique_id=758182231]
@@ -20,10 +21,25 @@ offset_right = -0.2000122
 offset_bottom = 5.0
 color = Color(0, 0, 0, 1)
 
+[node name="ImagenEscritorio" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("99_escritorio")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="ContentCenter" type="CenterContainer" parent="." unique_id=1717128459]
-layout_mode = 0
-offset_right = 724.0
-offset_bottom = 485.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ResultsPanel" type="PanelContainer" parent="ContentCenter" unique_id=10024639]
 layout_mode = 2
@@ -83,16 +99,22 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CreditsOverlay" type="ColorRect" parent="." unique_id=30831203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 visible = false
-layout_mode = 0
-offset_right = 724.0
-offset_bottom = 487.0
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="CreditsOverlay" unique_id=409447535]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CreditsOverlay/CenterContainer" unique_id=1727324391]
 layout_mode = 2
