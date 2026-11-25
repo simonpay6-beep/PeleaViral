@@ -59,52 +59,52 @@ class Idle extends Estado:
 
 class Golpe extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.GOLPE, "golpe", "[2/10] 🥊 GOLPE", Color(1.0, 0.6, 0.2))
+		_configurar(EstadosEnemigo.Id.GOLPE, "golpe", "[2/10] GOLPE", Color(1.0, 0.6, 0.2))
 
 
 class GolpeFuerte extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.GOLPE_FUERTE, "golpe_fuerte", "[3/10] 💥 GOLPE FUERTE", Color(1.0, 0.2, 0.2))
+		_configurar(EstadosEnemigo.Id.GOLPE_FUERTE, "golpe_fuerte", "[3/10] GOLPE FUERTE", Color(1.0, 0.2, 0.2))
 
 
 class Patada extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.PATADA, "patada", "[4/10] 🦵 PATADA", Color(1.0, 0.5, 0.0))
+		_configurar(EstadosEnemigo.Id.PATADA, "patada", "[4/10] PATADA", Color(1.0, 0.5, 0.0))
 
 
 class Bloqueo extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.BLOQUEO, "bloqueo", "[5/10] 🛡️ BLOQUEO", Color(0.3, 0.8, 1.0))
+		_configurar(EstadosEnemigo.Id.BLOQUEO, "bloqueo", "[5/10] BLOQUEO", Color(0.3, 0.8, 1.0))
 		bloquea_ataques = true
 
 
 class Risa extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.RISA, "risa", "[6/10] 😂 RISA", Color(0.9, 0.4, 1.0))
+		_configurar(EstadosEnemigo.Id.RISA, "risa", "[6/10] RISA", Color(0.9, 0.4, 1.0))
 
 
 class Burla extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.BURLA, "burla", "[7/10] 😜 BURLA", Color(1.0, 1.0, 0.3))
+		_configurar(EstadosEnemigo.Id.BURLA, "burla", "[7/10] BURLA", Color(1.0, 1.0, 0.3))
 		multiplicador_dano = 1.8
 		bonus_views = 80
 
 
 class Herido extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.HERIDO, "herido", "[8/10] 🩸 HERIDO", Color(1.0, 0.4, 0.4))
+		_configurar(EstadosEnemigo.Id.HERIDO, "herido", "[8/10] HERIDO", Color(1.0, 0.4, 0.4))
 
 
 class Noqueado extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.NOQUEADO, "noqueado", "[9/10] 💫 NOQUEADO DE PIE", Color(1.0, 1.0, 0.5))
+		_configurar(EstadosEnemigo.Id.NOQUEADO, "noqueado", "[9/10] NOQUEADO DE PIE", Color(1.0, 1.0, 0.5))
 		multiplicador_dano = 1.8
 		bonus_views = 80
 
 
 class EnElPiso extends Estado:
 	func _init() -> void:
-		_configurar(EstadosEnemigo.Id.EN_EL_PISO, "en_el_piso", "[10/10] 💀 EN EL PISO (K.O.)", Color(0.5, 0.5, 0.5))
+		_configurar(EstadosEnemigo.Id.EN_EL_PISO, "en_el_piso", "[10/10] EN EL PISO (K.O.)", Color(0.5, 0.5, 0.5))
 		acepta_ataques = false
 		vuelve_a_idle = false
 

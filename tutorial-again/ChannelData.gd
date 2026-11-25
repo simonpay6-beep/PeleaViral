@@ -11,6 +11,8 @@ var channel_points: int = 0
 var video_title: String = "Mi Primer Video"
 var selected_filter: String = "Ninguno"
 var selected_difficulty: String = "Normal" 
+## Cómo pelea el jugador: "teclado" o "camara" (se elige antes de cada live).
+var modo_control: String = "teclado"
 
 var current_live_views: int = 0
 var current_video_points: int = 0

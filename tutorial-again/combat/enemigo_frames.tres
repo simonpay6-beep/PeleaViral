@@ -17,9 +17,34 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/muelto.png" id="15_muelto"]
 [ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/moscas1.png" id="16_moscas1"]
 [ext_resource type="Texture2D" path="res://assets/sprites/animations;lv1/moscas2.png" id="17_moscas2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arbol/arbol.png" id="18_arbol"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_arbol")
+}],
+"loop": true,
+"name": &"arbol_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_arbol")
+}],
+"loop": true,
+"name": &"arbol_herido",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_arbol")
+}],
+"loop": true,
+"name": &"arbol_en_el_piso",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_idle1")

@@ -27,10 +27,10 @@ func _display_video_summary() -> void:
 	points_value.text = "+%d pts" % ChannelData.current_video_points
 	
 	if not ChannelData.took_damage_in_level:
-		message_label.text = "🔥 ¡IMPECABLE! Terminaste el directo sin recibir un solo golpe. El algoritmo recomendó tu video a miles."
+		message_label.text = "¡IMPECABLE! Terminaste el directo sin recibir un solo golpe. El algoritmo recomendó tu video a miles."
 		message_label.modulate = Color.GOLD
 	else:
-		message_label.text = "📈 Buen directo. Recibiste algunos golpes, pero la audiencia disfrutó la tensión."
+		message_label.text = "Buen directo. Recibiste algunos golpes, pero la audiencia disfrutó la tensión."
 		message_label.modulate = Color.WHITE
 	
 	if ChannelData.current_video_index <= 3:

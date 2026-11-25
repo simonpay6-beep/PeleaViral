@@ -17,6 +17,6 @@ signal views_changed(views: int)
 
 ## Algo pasó en la pelea y el chat puede reaccionar. `tipo` puede ser:
 ## golpe_conecta, bloqueo_rival, burla, noqueado, ko_enemigo, rival_golpea,
-## bloqueaste, esquivaste, guardia_rota, guardia_recuperada, derrota.
+## bloqueaste, esquivaste, guardia_rota, guardia_recuperada, contraataque, furia, derrota.
 @warning_ignore("unused_signal")
 signal evento_combate(tipo: String)

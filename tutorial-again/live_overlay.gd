@@ -29,17 +29,21 @@ const DONACIONES: Array[int] = [2, 5, 5, 10, 20]
 
 ## Qué dice el chat ante cada evento de la pelea.
 const REACCIONES: Dictionary = {
-	"golpe_conecta": ["¡¡PEGÓ!! 💥", "¡Qué golpe! 🥊", "¡Dale otra!", "ESO ES CLIP 🔥", "jajaja le dolió", "¡Sigue, sigue!"],
-	"bloqueo_rival": ["uy, te bloqueó 🛡️", "pega por otro lado", "muy lento 😬", "¡Cambia el golpe!"],
-	"burla": ["¡Se está burlando! Pégale 😤", "jajaja qué cara 😜", "¡¡AHORA!! ¡Está distraído!"],
-	"noqueado": ["¡ESTÁ MAREADO, REMÁTALO! 💫", "¡¡AHORA AHORA!!", "💫💫💫", "¡Vulnerable!"],
-	"ko_enemigo": ["¡¡¡K.O.!!! 🏆", "LEYENDA 🔥🔥🔥", "¡¡¡NO LO PUEDO CREER!!!", "clip del año", "¡AL PISO! 💀"],
-	"rival_golpea": ["¡AUCH! 😵", "eso dolió hasta aquí", "¡Cúbrete, bro!", "uyyy 🩸", "la batería bajando 🔋😬"],
-	"bloqueaste": ["¡Buena guardia! 🛡️", "ni se inmutó", "🛡️🛡️🛡️", "¡Qué defensa!"],
-	"esquivaste": ["¡¡QUÉ REFLEJOS!! 💨", "esquivó sin mirar 😮", "Matrix 🕶️", "jajaja falló el golpe"],
-	"guardia_rota": ["¡NOOO LA GUARDIA! ⚠️", "se le rompió la defensa 😱", "¡ahora está vendido!", "¡cuidado!"],
-	"guardia_recuperada": ["volvió la guardia 🛡️", "¡rápido que viene otro!"],
-	"derrota": ["F en el chat 🪦", "nooo se cayó 😭", "¡Revancha! ¡Revancha!", "casi casi"],
+	"golpe_conecta": ["¡¡PEGÓ!!", "¡Qué golpe!", "¡Dale otra!", "ESO ES CLIP", "jajaja le dolió", "¡Sigue, sigue!"],
+	"bloqueo_rival": ["uy, te bloqueó", "pega por otro lado", "muy lento", "¡Cambia el golpe!"],
+	"burla": ["¡Se está burlando! Pégale", "jajaja qué cara", "¡¡AHORA!! ¡Está distraído!"],
+	"noqueado": ["¡ESTÁ MAREADO, REMÁTALO!", "¡¡AHORA AHORA!!", "MAREADOOO", "¡Vulnerable!"],
+	"ko_enemigo": ["¡¡¡K.O.!!!", "LEYENDA", "¡¡¡NO LO PUEDO CREER!!!", "clip del año", "¡AL PISO!"],
+	"rival_golpea": ["¡AUCH!", "eso dolió hasta aquí", "¡Cúbrete, bro!", "uyyy", "la batería bajando"],
+	"bloqueaste": ["¡Buena guardia!", "ni se inmutó", "muro total", "¡Qué defensa!"],
+	"esquivaste": ["¡¡QUÉ REFLEJOS!!", "esquivó sin mirar", "Matrix", "jajaja falló el golpe"],
+	"guardia_rota": ["¡NOOO LA GUARDIA!", "se le rompió la defensa", "¡ahora está vendido!", "¡cuidado!"],
+	"guardia_recuperada": ["volvió la guardia", "¡rápido que viene otro!"],
+	"contraataque": ["¡¡CONTRAATAQUE!!", "uyyy viene de vuelta", "¡cúbrete, bro!", "no te confíes"],
+	"furia": ["¡¡SE ENOJÓ!!", "MODO FURIA", "¡cuidado, ahora pega más fuerte!", "uyyy se puso rojo", "¡esquiva, esquiva!"],
+	"agotado": ["se quedó sin aire", "¡respira, bro!", "uyyy está cansado", "¡no esquives tanto!"],
+	"esquiva_temprana": ["se movió antes de tiempo", "¡espera el aviso!", "jajaja lo leyó"],
+	"derrota": ["F en el chat", "nooo se cayó", "¡Revancha! ¡Revancha!", "casi casi"],
 }
 
 @onready var stream_title_label: Label = $Panel/Margin/VBox/TitleRow/StreamTitleLabel
@@ -88,7 +92,7 @@ func _process(delta: float) -> void:
 
 
 func _pintar_views() -> void:
-	viewers_label.text = "👁️ %d viewers" % int(_views_mostradas)
+	viewers_label.text = "%d viewers" % int(_views_mostradas)
 
 
 # ------------------------------------------------------------ SUSCRIPCIONES ----
@@ -109,13 +113,13 @@ func _on_views_changed(views: int) -> void:
 
 	# Hitos: "¡500 viewers!", "¡1000 viewers!"...
 	while views >= _siguiente_hito:
-		_agregar_fila("[center][color=#ffd54a][b]🔥 ¡%d viewers en el directo! 🔥[/b][/color][/center]" % _siguiente_hito)
+		_agregar_fila("[center][color=#ffd54a][b]¡%d viewers en el directo![/b][/color][/center]" % _siguiente_hito)
 		_siguiente_hito += INTERVALO_HITO
 
 	# Llega gente nueva a medida que suben las views.
 	if views - _ultima_bienvenida >= 200:
 		_ultima_bienvenida = views
-		_agregar_fila("[color=#8a8fa3]👋 %s se unió al directo[/color]" % USUARIOS.pick_random())
+		_agregar_fila("[color=#8a8fa3]%s se unió al directo[/color]" % USUARIOS.pick_random())
 
 
 func _on_evento_combate(tipo: String) -> void:
@@ -145,7 +149,7 @@ func _agregar(usuario: String, mensaje: String) -> void:
 func _agregar_donacion() -> void:
 	var monto: int = DONACIONES.pick_random()
 	var frase: String = ["¡Pelea, pelea!", "¡Para el café del campeón!", "¡Sigue así!", "¡Cuidado con la guardia!"].pick_random()
-	_agregar_fila("[bgcolor=#5a3b00][color=#ffd54a]💸 [b]%s[/b] donó $%d: %s[/color][/bgcolor]" % [USUARIOS.pick_random(), monto, frase], true)
+	_agregar_fila("[bgcolor=#5a3b00][color=#ffd54a][b]%s[/b] donó $%d: %s[/color][/bgcolor]" % [USUARIOS.pick_random(), monto, frase], true)
 
 
 ## Crea una fila de chat con fundido de entrada y baja el scroll.

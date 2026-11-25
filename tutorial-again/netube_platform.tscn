@@ -2,6 +2,155 @@
 
 [ext_resource type="Texture2D" path="res://assets/fondos/escritorio.png" id="99_escritorio"]
 [ext_resource type="Script" uid="uid://c7nbx5f620jba" path="res://netube_platform.gd" id="1_dneal"]
+[ext_resource type="Theme" path="res://tema_caricatura.tres" id="98_tema"]
+[ext_resource type="Shader" path="res://avatar_circular.gdshader" id="97_circulo"]
+
+[sub_resource type="ShaderMaterial" id="mat_circulo"]
+shader = ExtResource("97_circulo")
+
+[sub_resource type="StyleBoxFlat" id="sb_cabecera"]
+bg_color = Color(0.07, 0.07, 0.07, 1)
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="sb_logo"]
+bg_color = Color(0.89, 0.13, 0.11, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="sb_tarjeta"]
+bg_color = Color(0.05, 0.03, 0.03, 0.96)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+content_margin_left = 26.0
+content_margin_top = 22.0
+content_margin_right = 26.0
+content_margin_bottom = 22.0
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(6, 8)
+
+[sub_resource type="StyleBoxFlat" id="sb_entrada"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="sb_entrada_foco"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.89, 0.13, 0.11, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="sb_crear"]
+bg_color = Color(0.89, 0.12, 0.06, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 6
+shadow_offset = Vector2(6, 8)
+
+[sub_resource type="StyleBoxFlat" id="sb_crear_hover"]
+bg_color = Color(1, 0.3, 0.2, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 6
+shadow_offset = Vector2(6, 8)
+
+[sub_resource type="StyleBoxFlat" id="sb_marco"]
+bg_color = Color(0.89, 0.13, 0.11, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="sb_suscribirse"]
+bg_color = Color(0.89, 0.13, 0.11, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="sb_video"]
+bg_color = Color(0.16, 0.16, 0.16, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.35, 0.35, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
 
 [node name="NetubePlatform" type="Control" unique_id=642937186]
 layout_mode = 3
@@ -10,6 +159,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("98_tema")
 script = ExtResource("1_dneal")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1923321010]
@@ -33,19 +183,44 @@ texture = ExtResource("99_escritorio")
 expand_mode = 1
 stretch_mode = 6
 
+[node name="Velo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.35)
+
 [node name="HeaderBar" type="PanelContainer" parent="." unique_id=1906901157]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 54.0
+offset_bottom = 58.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("sb_cabecera")
 
 [node name="HeaderHBox" type="HBoxContainer" parent="HeaderBar" unique_id=1981782875]
 layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LogoIcono" type="PanelContainer" parent="HeaderBar/HeaderHBox"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("sb_logo")
+
+[node name="Triangulo" type="Label" parent="HeaderBar/HeaderHBox/LogoIcono"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "▶"
 
 [node name="LogoLabel" type="Label" parent="HeaderBar/HeaderHBox" unique_id=1421942619]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.85882056, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 28
 text = "NeTube"
 
 [node name="MainContent" type="CenterContainer" parent="." unique_id=2121606247]
@@ -53,64 +228,229 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CreateChannelPanel" type="PanelContainer" parent="MainContent" unique_id=54659232]
+[node name="Fila" type="HBoxContainer" parent="MainContent"]
 layout_mode = 2
+theme_override_constants/separation = 26
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContent/CreateChannelPanel" unique_id=710219281]
+[node name="CreateChannelPanel" type="PanelContainer" parent="MainContent/Fila" unique_id=54659232]
+custom_minimum_size = Vector2(520, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_styles/panel = SubResource("sb_tarjeta")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContent/CreateChannelPanel/MarginContainer" unique_id=1253309286]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContent/Fila/CreateChannelPanel" unique_id=1253309286]
 layout_mode = 2
+theme_override_constants/separation = 12
 
-[node name="TitleLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=1365681770]
+[node name="TitleLabel" type="Label" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=1365681770]
 layout_mode = 2
-text = "Crear tu canal"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 30
+text = "Crea tu canal en NeTube"
 
-[node name="NameLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=2003537048]
+[node name="SubtitleLabel" type="Label" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer"]
 layout_mode = 2
-text = "Nombre del canal:"
+theme_override_colors/font_color = Color(0.75, 0.75, 0.75, 1)
+theme_override_font_sizes/font_size = 17
+text = "Así te verán tus seguidores en cada directo."
 
-[node name="NameInput" type="LineEdit" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=406558617]
+[node name="NameLabel" type="Label" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=2003537048]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.36, 0.31, 1)
+theme_override_font_sizes/font_size = 20
+text = "Nombre del canal"
+
+[node name="NameInput" type="LineEdit" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=406558617]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_placeholder_color = Color(0.55, 0.55, 0.55, 1)
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("sb_entrada")
+theme_override_styles/focus = SubResource("sb_entrada_foco")
 placeholder_text = "Ej: ProGamer99"
-max_length = 16
+max_length = 20
 
-[node name="AvatarLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=1512441358]
+[node name="AvatarLabel" type="Label" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=1512441358]
 layout_mode = 2
-text = "Elige tu foto de perfil:"
+theme_override_colors/font_color = Color(1, 0.36, 0.31, 1)
+theme_override_font_sizes/font_size = 20
+text = "Foto de perfil"
 
-[node name="AvatarGrid" type="HBoxContainer" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=2121231958]
+[node name="AvatarGrid" type="HBoxContainer" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=2121231958]
 layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
 
-[node name="AvatarBtn1" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer/AvatarGrid" unique_id=1127036897]
+[node name="AvatarBtn1" type="Button" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer/AvatarGrid" unique_id=1127036897]
+custom_minimum_size = Vector2(116, 140)
 layout_mode = 2
-text = "Pollo"
+theme_override_font_sizes/font_size = 18
+text = "Gallo"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="AvatarBtn2" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer/AvatarGrid" unique_id=1177352737]
+[node name="AvatarBtn2" type="Button" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer/AvatarGrid" unique_id=1177352737]
+custom_minimum_size = Vector2(116, 140)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Luchador"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="AvatarBtn3" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer/AvatarGrid" unique_id=681689027]
+[node name="AvatarBtn3" type="Button" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer/AvatarGrid" unique_id=681689027]
+custom_minimum_size = Vector2(116, 140)
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Mosca"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="SelectedPreview" type="TextureRect" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=283153108]
+[node name="ErrorLabel" type="Label" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=1511939258]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.45, 0.4, 1)
+theme_override_font_sizes/font_size = 18
+text = "Escribe un nombre"
+horizontal_alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="MainContent/Fila/CreateChannelPanel/VBoxContainer" unique_id=307044242]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("sb_crear")
+theme_override_styles/hover = SubResource("sb_crear_hover")
+theme_override_styles/pressed = SubResource("sb_crear")
+text = "Crear canal  ▶"
+
+[node name="PreviewPanel" type="PanelContainer" parent="MainContent/Fila"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_tarjeta")
+
+[node name="VBox" type="VBoxContainer" parent="MainContent/Fila/PreviewPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PreviewTitulo" type="Label" parent="MainContent/Fila/PreviewPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.36, 0.31, 1)
+theme_override_colors/font_outline_color = Color(1, 0.36, 0.31, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 16
+text = "VISTA PREVIA DE TU CANAL"
+
+[node name="Banner" type="ColorRect" parent="MainContent/Fila/PreviewPanel/VBox"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(0.89, 0.13, 0.11, 1)
+
+[node name="Perfil" type="HBoxContainer" parent="MainContent/Fila/PreviewPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="MarcoFoto" type="PanelContainer" parent="MainContent/Fila/PreviewPanel/VBox/Perfil"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("sb_marco")
+
+[node name="PreviewAvatar" type="TextureRect" parent="MainContent/Fila/PreviewPanel/VBox/Perfil/MarcoFoto"]
+material = SubResource("mat_circulo")
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ErrorLabel" type="Label" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=1511939258]
-visible = false
+[node name="Datos" type="VBoxContainer" parent="MainContent/Fila/PreviewPanel/VBox/Perfil"]
 layout_mode = 2
-text = "Escribe un nombre"
+size_flags_horizontal = 3
+alignment = 1
 
-[node name="ConfirmButton" type="Button" parent="MainContent/CreateChannelPanel/MarginContainer/VBoxContainer" unique_id=307044242]
+[node name="PreviewNombre" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Perfil/Datos"]
 layout_mode = 2
-text = "Crear canal y continuar"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 26
+text = "Tu canal"
+clip_text = true
+
+[node name="PreviewUsuario" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Perfil/Datos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 17
+text = "@tucanal"
+clip_text = true
+
+[node name="PreviewStats" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Perfil/Datos"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 17
+text = "0 suscriptores · 0 videos"
+
+[node name="Suscribirse" type="PanelContainer" parent="MainContent/Fila/PreviewPanel/VBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("sb_suscribirse")
+
+[node name="Texto" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Suscribirse"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Suscribirse"
+horizontal_alignment = 1
+
+[node name="Videos" type="HBoxContainer" parent="MainContent/Fila/PreviewPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Video1" type="PanelContainer" parent="MainContent/Fila/PreviewPanel/VBox/Videos"]
+custom_minimum_size = Vector2(108, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("sb_video")
+
+[node name="Texto" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Videos/Video1"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Video #1
+Próximamente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Video2" type="PanelContainer" parent="MainContent/Fila/PreviewPanel/VBox/Videos"]
+custom_minimum_size = Vector2(108, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("sb_video")
+
+[node name="Texto" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Videos/Video2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Video #2
+Próximamente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Video3" type="PanelContainer" parent="MainContent/Fila/PreviewPanel/VBox/Videos"]
+custom_minimum_size = Vector2(108, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("sb_video")
+
+[node name="Texto" type="Label" parent="MainContent/Fila/PreviewPanel/VBox/Videos/Video3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "Video #3
+Próximamente"
+horizontal_alignment = 1
+vertical_alignment = 1

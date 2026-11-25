@@ -1,0 +1,3 @@
+# Librerías del detector de cámara de PeleaViral (usar Python 3.9 a 3.12)
+mediapipe==0.10.21
+opencv-python>=4.8,<5

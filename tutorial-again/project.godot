@@ -22,6 +22,7 @@ SceneRouter="*res://scene_router.gd"
 Audio="*res://audio_manager.gd"
 Accesibilidad="*res://accesibilidad.gd"
 ChannelData="*uid://dv10bb1m8xubk"
+CamaraEnVivo="*res://camara_en_vivo.gd"
 
 [display]
 
@@ -29,7 +30,7 @@ window/size/viewport_width=1152
 window/size/viewport_height=648
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://assets/ui/cursor.png"
-mouse_cursor/custom_image_hotspot=Vector2(20, 20)
+mouse_cursor/custom_image_hotspot=Vector2(0, 0)
 
 [input]
 

@@ -35,7 +35,14 @@ func _correr() -> void:
 	check(intro.story_text.text.begins_with("Este eres tú"), "Anterior en la página 1 no rompe nada")
 	intro._on_continue_story_pressed()
 	intro._on_continue_story_pressed()
-	check(intro.continue_button.text == "Abrir NeTube", "última página")
+	check(not intro.ninfa.visible and intro.nombre_hablante.text == "TÚ", "página 3: habla el gallo, sin ninfa")
+	intro._on_continue_story_pressed()
+	check(intro.ninfa.visible and intro.nombre_hablante.text == "NINFA", "página 4: entra la ninfa y habla")
+	intro._on_continue_story_pressed()
+	intro._on_continue_story_pressed()
+	check(intro.continue_button.text == "Seguir con mi plan" and intro.caso_button.visible, "última página: elegir entre hacerle caso o seguir")
+	intro._on_back_story_pressed()
+	check(not intro.caso_button.visible and intro.continue_button.text == "Siguiente", "al volver atrás desaparece la elección")
 	intro.queue_free()
 	await esperar(2)
 
@@ -69,7 +76,7 @@ func _correr() -> void:
 	juego.generar_comentario_ambiental()
 	juego.views_en_vivo = 900
 	juego.finalizar_combate(true)
-	await esperar(2)
+	await create_timer(6.8).timeout # sonidos del K.O. y pausa antes de las estadísticas
 	check("NUEVO RÉCORD" in juego.texto_cinematica.text, "primer combate = nuevo récord")
 	check(HistorialPeleas.new().mejor_views(juego.nivel_actual) >= 900, "récord guardado en archivo")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(HistorialPeleas.RUTA))

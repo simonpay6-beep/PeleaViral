@@ -31,10 +31,11 @@ De pie, con cabeza y hombros a la vista:
 ## Cómo se pelea
 
 - **Un golpe por gesto / pulsación**: mantener la tecla o el gesto no repite el golpe.
-- Tras recibir un golpe el rival se recupera: no contraataca de inmediato.
 - **Patadas**: no se pueden bloquear. El rival se gira hacia el lado por el que viene la patada: esquiva hacia el lado **contrario**.
 - El rival **avisa** cada ataque: levanta el guante o la pierna. Defiéndete o esquiva justo entonces.
-  Si lo golpeas mientras prepara el ataque, **lo interrumpes**.
+  Si lo golpeas **justo cuando prepara** el ataque, lo interrumpes y queda mareado (solo cada 4 segundos y nunca en modo furia).
+  Si no, aguanta el golpe y te ataca igual.
+- Si le das 3 golpes seguidos (2 en modo furia), **contraataca** con un ataque que no se puede interrumpir.
 - Si te cubres demasiado, la **guardia se rompe** y quedas sin defensa 3 segundos (tus puños se ponen rojizos y bajan).
 - Burla y "noqueado de pie": el rival recibe más daño.
 - El Nivel 3 es un jefe invencible: sus 10 ataques atraviesan cualquier defensa (es parte de la historia).

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" path="res://assets/fondos/escritorio.png" id="99_escritorio"]
 [ext_resource type="Script" uid="uid://cddf4jjjijdyy" path="res://phone_intro.gd" id="1_66123"]
+[ext_resource type="Theme" path="res://tema_caricatura.tres" id="98_tema"]
 
 [sub_resource type="Gradient" id="Gradient_glow"]
 offsets = PackedFloat32Array(0, 1)
@@ -14,6 +15,41 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 width = 256
 height = 256
+
+[sub_resource type="StyleBoxFlat" id="sb_dialogo"]
+bg_color = Color(0.05, 0.03, 0.03, 0.96)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+content_margin_left = 30.0
+content_margin_top = 22.0
+content_margin_right = 30.0
+content_margin_bottom = 18.0
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(6, 8)
+
+[sub_resource type="StyleBoxFlat" id="sb_nombre"]
+bg_color = Color(0.89, 0.13, 0.11, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 18.0
+content_margin_top = 2.0
+content_margin_right = 18.0
+content_margin_bottom = 2.0
 
 [node name="phone_intro" type="Control" unique_id=210998336]
 layout_mode = 3
@@ -96,28 +132,92 @@ mouse_filter = 2
 text = "Toca el teléfono"
 horizontal_alignment = 1
 
+[node name="Personaje" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -560.0
+offset_right = 350.0
+offset_bottom = -6.0
+grow_vertical = 0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Ninfa" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -330.0
+offset_top = -580.0
+offset_right = -10.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
 [node name="StoryPanel" type="PanelContainer" parent="." unique_id=1746775011]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -150.0
+offset_left = 340.0
+offset_top = -214.0
+offset_right = -36.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("98_tema")
+theme_override_styles/panel = SubResource("sb_dialogo")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StoryPanel" unique_id=1321287111]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="StoryText" type="RichTextLabel" parent="StoryPanel/VBoxContainer" unique_id=407045836]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 76)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 24
 fit_content = true
 scroll_active = false
 
-[node name="ContinueButton" type="Button" parent="StoryPanel/VBoxContainer" unique_id=812412315]
+[node name="Botones" type="HBoxContainer" parent="StoryPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="ContinueButton" type="Button" parent="StoryPanel/VBoxContainer/Botones" unique_id=812412315]
 layout_mode = 2
 text = "Entrar a NeTube"
+
+[node name="NombreHablante" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 362.0
+offset_top = -234.0
+offset_right = 440.0
+offset_bottom = -200.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("sb_nombre")
+text = "TÚ"
 
 [node name="FlashOverlay" type="ColorRect" parent="." unique_id=194331518]
 layout_mode = 1

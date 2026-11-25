@@ -4,6 +4,8 @@
 [ext_resource type="Theme" path="res://tema_caricatura.tres" id="98_tema"]
 [ext_resource type="Script" uid="uid://7d2o8ge4bwel" path="res://channel_dashboard.gd" id="1_3scej"]
 
+[sub_resource type="StyleBoxEmpty" id="sb_sin_linea"]
+
 [node name="ChannelDashboard" type="Control" unique_id=1654918557]
 layout_mode = 3
 anchors_preset = 15
@@ -67,6 +69,7 @@ size_flags_vertical = 3
 
 [node name="HSeparator" type="HSeparator" parent="MainVBox" unique_id=828488290]
 layout_mode = 2
+theme_override_styles/separator = SubResource("sb_sin_linea")
 
 [node name="ConfigCenter" type="MarginContainer" parent="MainVBox" unique_id=1933924606]
 layout_mode = 2
@@ -126,7 +129,7 @@ layout_mode = 2
 [node name="StartLiveButton" type="Button" parent="MainVBox/ConfigCenter/ConfigPanel/Margin/VBoxContainer" unique_id=1491678123]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
-text = "🔴 ¡Iniciar Live!"
+text = "¡Iniciar Live!"
 
 [node name="IntroAnimationOverlay" type="ColorRect" parent="." unique_id=913939210]
 layout_mode = 1

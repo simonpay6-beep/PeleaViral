@@ -88,7 +88,18 @@ func _on_start_live_pressed() -> void:
 		2:
 			ChannelData.selected_difficulty = "Hardcore"
 	
-	_play_pre_stream_intro()
+	_elegir_control()
+
+
+## Antes de salir en vivo se elige cómo pelear: con la cámara o con el teclado.
+func _elegir_control() -> void:
+	var selector: SelectorControl = SelectorControl.new()
+	add_child(selector)
+	selector.elegido.connect(func(_modo: String) -> void:
+		_play_pre_stream_intro())
+	selector.cancelado.connect(func() -> void:
+		start_live_button.disabled = false
+		start_live_button.grab_focus())
 
 func _play_pre_stream_intro() -> void:
 	intro_overlay.visible = true

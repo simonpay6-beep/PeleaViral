@@ -1,0 +1,243 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://final_periodico.gd" id="1_script"]
+[ext_resource type="Theme" path="res://tema_caricatura.tres" id="98_tema"]
+[ext_resource type="Texture2D" path="res://assets/finales/foto_periodico.png" id="2_foto"]
+
+[sub_resource type="StyleBoxFlat" id="sb_dialogo"]
+bg_color = Color(0.05, 0.03, 0.03, 0.96)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+content_margin_left = 26.0
+content_margin_top = 20.0
+content_margin_right = 26.0
+content_margin_bottom = 16.0
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(6, 8)
+
+[sub_resource type="StyleBoxFlat" id="sb_etiqueta"]
+bg_color = Color(0.78, 0.45, 0.78, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 18.0
+content_margin_top = 2.0
+content_margin_right = 18.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="sb_papel"]
+bg_color = Color(0.93, 0.9, 0.82, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.18, 0.15, 1)
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 18.0
+shadow_color = Color(0, 0, 0, 0.7)
+shadow_size = 14
+shadow_offset = Vector2(10, 12)
+
+[node name="FinalPeriodico" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("98_tema")
+script = ExtResource("1_script")
+
+[node name="Fondo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09, 0.07, 0.08, 1)
+
+[node name="Periodico" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 34.0
+offset_right = 936.0
+offset_bottom = 614.0
+theme_override_styles/panel = SubResource("sb_papel")
+
+[node name="VBox" type="VBoxContainer" parent="Periodico"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Cabecera" type="Label" parent="Periodico/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13, 0.11, 0.1, 1)
+theme_override_font_sizes/font_size = 46
+text = "EL DIARIO VIRAL"
+theme_override_colors/font_outline_color = Color(0.13, 0.11, 0.1, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 1
+
+[node name="Linea1" type="ColorRect" parent="Periodico/VBox"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.13, 0.11, 0.1, 1)
+
+[node name="Fecha" type="Label" parent="Periodico/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13, 0.11, 0.1, 1)
+theme_override_font_sizes/font_size = 14
+text = "EDICIÓN ESPECIAL  ·  SECCIÓN REDES SOCIALES  ·  $1"
+horizontal_alignment = 1
+
+[node name="Linea2" type="ColorRect" parent="Periodico/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.13, 0.11, 0.1, 1)
+
+[node name="Titular" type="Label" parent="Periodico/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.13, 0.11, 0.1, 1)
+theme_override_font_sizes/font_size = 30
+text = "CREADOR DE CONTENIDO TERMINA EN EL HOSPITAL POR GRABAR SUS PROPIAS PELEAS"
+theme_override_colors/font_outline_color = Color(0.13, 0.11, 0.1, 1)
+theme_override_constants/outline_size = 1
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Cuerpo" type="HBoxContainer" parent="Periodico/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ColFoto" type="VBoxContainer" parent="Periodico/VBox/Cuerpo"]
+layout_mode = 2
+
+[node name="Foto" type="TextureRect" parent="Periodico/VBox/Cuerpo/ColFoto"]
+custom_minimum_size = Vector2(368, 230)
+layout_mode = 2
+texture = ExtResource("2_foto")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PieFoto" type="Label" parent="Periodico/VBox/Cuerpo/ColFoto"]
+custom_minimum_size = Vector2(368, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.27, 0.24, 1)
+theme_override_font_sizes/font_size = 13
+text = "El joven se recupera tras su última transmisión en vivo."
+autowrap_mode = 3
+
+[node name="Columna" type="Label" parent="Periodico/VBox/Cuerpo"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.2, 0.18, 0.16, 1)
+theme_override_font_sizes/font_size = 14
+text = "Un joven creador de contenido fue internado anoche después de transmitir en vivo una serie de peleas callejeras en la plataforma NeTube.
+
+Según sus seguidores, buscaba hacerse viral a cualquier costo: cada pelea le daba más visitas, y cada rival era más peligroso.
+
+Los médicos aseguran que se recuperará, pero advierten que ninguna cantidad de likes vale poner en riesgo la salud."
+autowrap_mode = 3
+
+[node name="Ninfa" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 70.0
+offset_right = 1130.0
+offset_bottom = 640.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelDialogo" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 444.0
+offset_right = 790.0
+offset_bottom = 624.0
+theme_override_styles/panel = SubResource("sb_dialogo")
+
+[node name="VBox" type="VBoxContainer" parent="PanelDialogo"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Texto" type="RichTextLabel" parent="PanelDialogo/VBox"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 23
+fit_content = true
+scroll_active = false
+
+[node name="Botones" type="HBoxContainer" parent="PanelDialogo/VBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="Siguiente" type="Button" parent="PanelDialogo/VBox/Botones"]
+layout_mode = 2
+text = "Siguiente"
+
+[node name="Etiqueta" type="Label" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 424.0
+offset_right = 170.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("sb_etiqueta")
+text = "NINFA"
+
+[node name="Cierre" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03, 0.02, 0.04, 0.94)
+
+[node name="Centro" type="CenterContainer" parent="Cierre"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Cierre/Centro"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="TextoFin" type="Label" parent="Cierre/Centro/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 34
+text = "FIN"
+horizontal_alignment = 1
+
+[node name="BotonMenu" type="Button" parent="Cierre/Centro/VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volver al menú"

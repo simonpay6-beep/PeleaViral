@@ -78,12 +78,12 @@ text_overrun_behavior = 3
 
 [node name="ViewersLabel" type="Label" parent="Panel/Margin/VBox"]
 layout_mode = 2
-text = "👁️ 0 viewers"
+text = "0 viewers"
 
 [node name="ChatHeader" type="Label" parent="Panel/Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.3, 0.3, 1)
-text = "💬 Chat del directo - NeTube"
+text = "Chat del directo - NeTube"
 
 [node name="ChatScroll" type="ScrollContainer" parent="Panel/Margin/VBox"]
 layout_mode = 2

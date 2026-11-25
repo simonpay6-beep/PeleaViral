@@ -16,6 +16,8 @@ const EXTENSIONES: Array[String] = ["ogg", "wav", "mp3"]
 
 ## Volumen en decibeles (0 = normal, -6 = la mitad aprox., -80 = silencio).
 const VOLUMEN_MUSICA_DB: float = -8.0
+## Volumen propio de algunas canciones (en dB). Las demás usan VOLUMEN_MUSICA_DB.
+const VOLUMEN_POR_MUSICA: Dictionary = {"pelea": -0.8, "pelea_jefe": -0.8}  # -2 dB + 15 %
 const VOLUMEN_SFX_DB: float = 0.0
 const DURACION_FUNDIDO: float = 0.8
 const CANALES_SFX: int = 8
@@ -24,11 +26,13 @@ const CANALES_SFX: int = 8
 ## lista, se mantiene la música que ya estaba sonando.
 const MUSICA_POR_ESCENA: Dictionary = {
 	"res://inicio.tscn": "menu",
-	"res://phone_intro.tscn": "historia",
-	"res://netube_platform.tscn": "canal",
-	"res://channel_dashboard.tscn": "canal",
+	"res://phone_intro.tscn": "intro",
+	"res://netube_platform.tscn": "intro",
+	"res://channel_dashboard.tscn": "intro",
 	"res://juego.tscn": "pelea",
 	"res://video_results.tscn": "canal",
+	"res://final_periodico.tscn": "final",
+	"res://final_hospital.tscn": "final",
 }
 
 ## evento_combate (de EventBus) -> efecto de sonido.
@@ -43,6 +47,7 @@ const SFX_POR_EVENTO: Dictionary = {
 	"noqueado": "noqueado",
 	"ko_enemigo": "ko",
 	"burla": "burla",
+	"furia": "furia",
 }
 
 var _musica_a: AudioStreamPlayer
@@ -55,6 +60,7 @@ var _cache: Dictionary = {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS # que siga sonando aunque se pause
+	get_tree().set_auto_accept_quit(false) # cerrar la ventana pasa por quit_game()
 	_crear_bus("Musica")
 	_crear_bus("SFX")
 
@@ -68,6 +74,23 @@ func _ready() -> void:
 	get_tree().node_added.connect(_on_node_added)
 	# Música de la primera escena (la que arranca el juego).
 	_musica_de_escena_actual.call_deferred()
+
+
+## Detiene la música y los efectos y suelta los archivos de audio. Se llama
+## antes de cerrar el juego para que Godot no avise de recursos sin liberar.
+func detener_todo() -> void:
+	for p in get_children():
+		if p is AudioStreamPlayer:
+			p.stop()
+			p.stream = null
+	_musica_actual = ""
+	_cache.clear()
+
+
+## La X de la ventana pasa por SceneRouter.quit_game(), igual que el botón Salir.
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		SceneRouter.quit_game()
 
 
 # ---------------------------------------------------------------- API pública
@@ -85,11 +108,18 @@ func sfx(nombre: String, variar_tono: bool = true, volumen_db: float = 0.0) -> v
 	p.play()
 
 
+## Duración en segundos de un efecto (0 si el archivo no existe).
+func duracion(nombre: String) -> float:
+	var stream: AudioStream = _cargar(CARPETA_SFX, nombre)
+	return stream.get_length() if stream != null else 0.0
+
+
 ## Cambia la música con un fundido. musica("") la apaga.
 func musica(nombre: String) -> void:
 	if nombre == _musica_actual:
 		return
 	_musica_actual = nombre
+	_volumen_bus_musica(0.0) # una canción nueva siempre suena a volumen normal
 	var sale: AudioStreamPlayer = _musica_a if _musica_a.playing else _musica_b
 	var entra: AudioStreamPlayer = _musica_b if sale == _musica_a else _musica_a
 
@@ -105,7 +135,24 @@ func musica(nombre: String) -> void:
 	entra.stream = stream
 	entra.volume_db = -80.0
 	entra.play()
-	create_tween().tween_property(entra, "volume_db", VOLUMEN_MUSICA_DB, DURACION_FUNDIDO)
+	create_tween().tween_property(entra, "volume_db", VOLUMEN_POR_MUSICA.get(nombre, VOLUMEN_MUSICA_DB), DURACION_FUNDIDO)
+
+
+## Baja el volumen de la música (sin cortarla) para que se escuchen bien los
+## efectos, por ejemplo los sonidos del K.O. Vuelve a la normalidad con la
+## siguiente canción.
+func bajar_musica(db: float = -18.0, duracion: float = 0.4) -> void:
+	var bus: int = AudioServer.get_bus_index("Musica")
+	create_tween().tween_method(_volumen_bus_musica, AudioServer.get_bus_volume_db(bus), db, duracion)
+
+
+## ¿Existe un archivo de música con este nombre?
+func existe_musica(nombre: String) -> bool:
+	return _cargar(CARPETA_MUSICA, nombre) != null
+
+
+func _volumen_bus_musica(db: float) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Musica"), db)
 
 
 ## La llama SceneRouter.go() antes de cambiar de escena.

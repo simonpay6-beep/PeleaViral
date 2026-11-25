@@ -1,0 +1,39 @@
+DETECTOR DE CAMARA - PELEA VIRAL
+================================
+
+Reconoce tus movimientos con la camara y se los manda al juego.
+
+INSTALAR (solo la primera vez)
+  1. Instale Python 3.12 (https://www.python.org/downloads/) y marque
+     "Add python.exe to PATH". MediaPipe no funciona con Python 3.13+.
+  2. Doble clic en iniciar_camara.bat: instala las librerias solo
+     (mediapipe y opencv) y abre el detector.
+
+USAR
+  - Abra el detector (iniciar_camara.bat o el boton dentro del juego).
+  - En el juego, al tocar "Iniciar Live", elija CAMARA.
+  - Pongase a 1,5 - 2 m, con la cabeza y los hombros a la vista y buena luz.
+  - Para salir, cierre la ventana negra del detector.
+
+GESTOS
+  Mano delante de la cara (sobre la barbilla) ... DEFENSA
+  Inclinar el cuerpo a un lado .................. ESQUIVA
+  Punetazo al frente, hacia la camara ........... RECTO
+  Gancho en arco, de afuera hacia el centro ..... GANCHO
+  Punetazo de abajo hacia arriba ................ UPPERCUT
+  Levantar la rodilla (cuerpo entero a la vista)  PATADA
+
+AJUSTES
+  Si detecta golpes de mas o de menos, cambie los UMBRALES al inicio de
+  gestos.py (por ejemplo VEL_GOLPE: mas alto = hay que golpear mas rapido).
+  Para probar sin el juego:  iniciar_camara.bat --ventana
+  Si tiene varias camaras:    iniciar_camara.bat --camara 1
+  Pruebas de los gestos:      python prueba_gestos.py
+
+COMO FUNCIONA
+  detector_peleaviral.py  abre la camara y usa MediaPipe Pose (33 puntos
+                          del cuerpo); manda al juego por UDP:
+                            puerto 4242: lo detectado (JSON)
+                            puerto 4243: imagen pequena de la camara (JPEG)
+  gestos.py               convierte los puntos del cuerpo en defensa,
+                          esquiva y golpes (no depende de la camara).

@@ -23,6 +23,29 @@ class Estrategia extends RefCounted:
 	## Color con el que se tiñe al enemigo para distinguir los niveles (blanco = sprite original).
 	var tinte: Color = Color.WHITE
 
+	## MODO FURIA: cuando al rival le queda poca vida se enoja. Desde ahí ataca
+	## más rápido, de forma más aleatoria (sin bloqueos ni burlas y con avisos
+	## de duración variable) y hace más daño.
+	var en_furia: bool = false
+	const UMBRAL_FURIA: float = 0.5          # se activa con el 50 % de vida
+	const MULT_VELOCIDAD_FURIA: float = 0.55 # decide casi el doble de rápido
+	const MULT_DANO_FURIA: float = 1.4       # +40 % de daño
+
+	## ¿Este rival puede entrar en modo furia? (el árbol y el jefe final no)
+	func puede_enfurecerse() -> bool:
+		return true
+
+	## Acción en modo furia: siempre ataca, con tipo y aviso al azar.
+	func elegir_accion_furia() -> Dictionary:
+		var preparacion: float = randf_range(0.35, 0.6)
+		match randi() % 3:
+			0:
+				return _accion(EstadosEnemigo.Id.GOLPE, preparacion, "GOLPE FURIOSO", 1)
+			1:
+				return _accion(EstadosEnemigo.Id.GOLPE_FUERTE, preparacion, "GOLPE FUERTE FURIOSO", 2)
+			_:
+				return _accion(EstadosEnemigo.Id.PATADA, preparacion, "PATADA FURIOSA", 1)
+
 	func texto_historia(_titulo_video: String) -> String:
 		return ""
 
@@ -45,7 +68,7 @@ class Estrategia extends RefCounted:
 	func comentarios_ambiente() -> Array[String]:
 		return [
 			"¡Dale con el Uppercut!",
-			"Buena guardia frente a la cámara 🥊",
+			"Buena guardia frente a la cámara",
 			"¡Esquiva, esquiva!",
 			"Llegando al directo, ¿quién va ganando?",
 		]
@@ -64,7 +87,7 @@ class Estrategia extends RefCounted:
 			return _accion(EstadosEnemigo.Id.BLOQUEO, 1.2, "", 0, "", true)
 		return _accion(
 			EstadosEnemigo.Id.BURLA, 1.3, "", 0,
-			"😜 ¡El rival hace una BURLA! ¡Golpéalo ahora!"
+			"¡El rival hace una BURLA! ¡Golpéalo ahora!"
 		)
 
 	func _accion(
@@ -86,48 +109,28 @@ class Estrategia extends RefCounted:
 class Tutorial extends Estrategia:
 	func _init() -> void:
 		numero = 0
-		nombre_enemigo = "🌳 Árbol de Entrenamiento"
+		nombre_enemigo = "Árbol de Entrenamiento"
 		prefijo_anim = "arbol_"
 		vida_max = 100.0
+
+	func puede_enfurecerse() -> bool:
+		return false
 
 
 class Nivel1 extends Estrategia:
 	func _init() -> void:
 		numero = 1
-		nombre_enemigo = "🥊 Rival #1: Buscapleitos Callejero"
+		nombre_enemigo = "Rival #1: Buscapleitos Callejero"
 		prefijo_anim = "n1_"
-		vida_max = 100.0
+		vida_max = 170.0
 		dialogo_inicio = "Rival #1: '¡Hoy te quedas sin canal en NeTube!'"
 		color_historia = Color(0.08, 0.12, 0.22, 0.96)
 
 	func texto_historia(titulo_video: String) -> String:
 		return (
-			"🎬 HISTORIA NIVEL 1: " + titulo_video
+			"HISTORIA NIVEL 1: " + titulo_video
 			+ "\n\nEl directo comienza tras derribar el árbol.\n"
 			+ "Tu primer rival callejero entra al encuadre buscando tumbarte el stream.\n\n"
-			+ "[Presiona ENTER o espera 4 segundos]"
-		)
-
-	func intervalo_ia(factor: float) -> float:
-		return 2.0 * factor
-
-
-class Nivel2 extends Estrategia:
-	func _init() -> void:
-		numero = 2
-		nombre_enemigo = "🦵 Rival #2: Campeón Pesado"
-		prefijo_anim = "n2_"
-		fondo_textura = "res://assets/fondos/calle.png"
-		tinte = Color(1.0, 0.82, 0.62)
-		vida_max = 180.0
-		dialogo_inicio = "Rival #2: 'Tus golpes del primer video no servirán conmigo.'"
-		color_historia = Color(0.18, 0.08, 0.25, 0.96)
-
-	func texto_historia(titulo_video: String) -> String:
-		return (
-			"🎬 HISTORIA NIVEL 2: " + titulo_video
-			+ "\n\nTus suscriptores subieron y ahora te reta un peleador pesado.\n"
-			+ "Bloquea tus ataques, se burla y patea con fuerza.\n\n"
 			+ "[Presiona ENTER o espera 4 segundos]"
 		)
 
@@ -135,7 +138,33 @@ class Nivel2 extends Estrategia:
 		return 1.35 * factor
 
 	func dano_a_jugador(peso: int) -> float:
-		return 15.0 if peso == 1 else 22.0
+		return 16.0 if peso == 1 else 24.0
+
+
+class Nivel2 extends Estrategia:
+	func _init() -> void:
+		numero = 2
+		nombre_enemigo = "Rival #2: Campeón Pesado"
+		prefijo_anim = "n2_"
+		fondo_textura = "res://assets/fondos/calle.png"
+		tinte = Color(1.0, 0.82, 0.62)
+		vida_max = 280.0
+		dialogo_inicio = "Rival #2: 'Tus golpes del primer video no servirán conmigo.'"
+		color_historia = Color(0.18, 0.08, 0.25, 0.96)
+
+	func texto_historia(titulo_video: String) -> String:
+		return (
+			"HISTORIA NIVEL 2: " + titulo_video
+			+ "\n\nTus suscriptores subieron y ahora te reta un peleador pesado.\n"
+			+ "Bloquea tus ataques, se burla y patea con fuerza.\n\n"
+			+ "[Presiona ENTER o espera 4 segundos]"
+		)
+
+	func intervalo_ia(factor: float) -> float:
+		return 0.95 * factor
+
+	func dano_a_jugador(peso: int) -> float:
+		return 20.0 if peso == 1 else 30.0
 
 
 ## Jefe final: vida infinita, nunca bloquea ni se burla, y sus 10 ataques
@@ -153,7 +182,7 @@ class Nivel3 extends Estrategia:
 
 	func _init() -> void:
 		numero = 3
-		nombre_enemigo = "👁️ NIVEL 3: EL ALGORITMO (INVENCIBLE)"
+		nombre_enemigo = "NIVEL 3: EL ALGORITMO (INVENCIBLE)"
 		prefijo_anim = "n3_"
 		fondo_textura = "res://assets/fondos/arena.png"
 		tinte = Color(1.0, 0.55, 0.55)
@@ -163,8 +192,8 @@ class Nivel3 extends Estrategia:
 
 	func texto_historia(titulo_video: String) -> String:
 		return (
-			"🎬 HISTORIA NIVEL 3: " + titulo_video
-			+ "\n\n⚠️ EL COMBATE FINAL ⚠️\n"
+			"HISTORIA NIVEL 3: " + titulo_video
+			+ "\n\nEL COMBATE FINAL\n"
 			+ "La fama te trajo hasta aquí, pero este rival es IMPOSIBLE.\n"
 			+ "Tiene VIDA INFINITA y caerás en exactamente 10 ATAQUES.\n\n"
 			+ "[Presiona ENTER o espera 4 segundos]"
@@ -177,19 +206,22 @@ class Nivel3 extends Estrategia:
 	func es_jefe_invencible() -> bool:
 		return true
 
+	func puede_enfurecerse() -> bool:
+		return false
+
 	func pensar(delta: float) -> String:
 		_timer_dialogo -= delta
 		if _timer_dialogo <= 0.0:
 			_timer_dialogo = 3.2
-			return "👁️ Jefe Final: \"" + DIALOGOS.pick_random() + "\""
+			return "Jefe Final: \"" + DIALOGOS.pick_random() + "\""
 		return ""
 
 	func comentarios_ambiente() -> Array[String]:
 		return [
-			"¡¡NO LE BAJA NADA LA VIDA!! 😱",
+			"¡¡NO LE BAJA NADA LA VIDA!!",
 			"¡Para el directo bro, te va a matar!",
 			"¡Ni cubriéndote puedes parar sus golpes!",
-			"¡100,000 espectadores viendo cómo cae! 🔥",
+			"¡100,000 espectadores viendo cómo cae!",
 		]
 
 	func elegir_accion(dado: int) -> Dictionary:

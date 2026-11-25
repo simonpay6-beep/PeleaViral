@@ -41,24 +41,28 @@ func _correr() -> void:
 	await foto("01_menu")
 	var intro: Node = await abrir("res://phone_intro.tscn")
 	await foto("02_telefono")
-	intro._start_story_intro()
-	await esperar(30)
+	intro._on_phone_clicked()
+	await esperar(90)
 	await foto("03_historia")
 	await abrir("res://netube_platform.tscn")
 	await foto("04_netube")
 	await abrir("res://channel_dashboard.tscn")
 	await foto("05_panel_canal")
+	cd.current_video_index = 1
+	var tutorial: Node = await abrir("res://juego.tscn")
+	await esperar(60)
+	if tutorial.panel_controles.visible:
+		await foto("06_ayuda_controles")
 	cd.current_video_index = 2
 	var juego: Node = await abrir("res://juego.tscn")
-	await esperar(60)
-	if juego.panel_controles.visible:
-		await foto("06_ayuda_controles")
-		juego._on_controles_cerrado()
+	await esperar(30)
+	juego._on_controles_cerrado()
 	juego.iniciar_pelea_nivel()
 	for i in 8:
 		root.get_node("EventBus").evento_combate.emit(["golpe_conecta", "esquivaste", "rival_golpea"][i % 3])
 		await esperar(15)
 	juego.views_en_vivo = 1350
+	juego.actualizar_hud()
 	await esperar(60)
 	await foto("07_pelea")
 	quit()

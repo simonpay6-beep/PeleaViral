@@ -12,6 +12,8 @@ const NETUBE: String = "res://netube_platform.tscn"
 const ADMIN_CANAL: String = "res://channel_dashboard.tscn"
 const JUEGO: String = "res://juego.tscn"
 const RESULTADOS: String = "res://video_results.tscn"
+const FINAL_PERIODICO: String = "res://final_periodico.tscn"
+const FINAL_HOSPITAL: String = "res://final_hospital.tscn"
 
 
 func go(path: String) -> void:
@@ -21,5 +23,9 @@ func go(path: String) -> void:
 		push_error("SceneRouter: no se pudo cargar '%s' (error %d)" % [path, result])
 
 
+## Cierra el juego. Primero detiene el audio y espera un cuadro para que Godot
+## libere la reproducción; así se cierra limpio, sin avisos en la consola.
 func quit_game() -> void:
+	Audio.detener_todo()
+	await get_tree().create_timer(0.3).timeout
 	get_tree().quit()

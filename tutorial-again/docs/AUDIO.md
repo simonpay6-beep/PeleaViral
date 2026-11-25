@@ -11,10 +11,10 @@ Formatos: `.ogg` (recomendado), `.wav` o `.mp3`. La música se repite en bucle a
 | Archivo | Cuándo suena |
 |---|---|
 | `menu` | Menú principal (`inicio.tscn`) |
-| `historia` | Intro del teléfono (`phone_intro.tscn`) |
-| `canal` | NeTube, panel del canal y resultados |
-| `pelea` | Peleas de los niveles 1 y 2 (y el tutorial) |
-| `pelea_jefe` | Pelea del nivel 3 |
+| `intro` | Desde la bienvenida (teléfono) hasta configurar el directo: `phone_intro`, `netube_platform` y `channel_dashboard`. Sigue sonando sin reiniciarse entre esas pantallas |
+| `canal` | Pantalla de resultados (`video_results.tscn`) |
+| `pelea` | Todas las peleas (y el tutorial). Al vencer al rival baja de volumen para que se oigan los sonidos del K.O. |
+| `pelea_jefe` | Pelea del nivel 3 (opcional: si no existe, suena `pelea`) |
 | `final` | Cinemática final del nivel 3 |
 
 ## Efectos — `assets/audio/sfx/`
@@ -35,12 +35,14 @@ Formatos: `.ogg` (recomendado), `.wav` o `.mp3`. La música se repite en bucle a
 | `noqueado` | El rival queda noqueado de pie |
 | `ko` | K.O. al rival |
 | `burla` | El rival se burla |
+| `furia` | El rival entra en modo furia |
 | `victoria` | Ganas la pelea (fanfarria corta) |
 | `derrota` | Pierdes la pelea |
 
 ## Ajustes rápidos (arriba de `audio_manager.gd`)
 
 - `VOLUMEN_MUSICA_DB` / `VOLUMEN_SFX_DB`: volumen (en dB; -6 ≈ la mitad).
+- `VOLUMEN_POR_MUSICA`: volumen propio de una canción (la de pelea suena a -0,8 dB).
 - `MUSICA_POR_ESCENA`: qué música va en cada escena.
 - `SFX_POR_EVENTO`: qué efecto suena con cada evento de la pelea.
 - Desde cualquier script: `Audio.sfx("nombre")` o `Audio.musica("nombre")`.
