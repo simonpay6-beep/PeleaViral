@@ -4,10 +4,12 @@ DETECTOR DE CAMARA - PELEA VIRAL
 Reconoce tus movimientos con la camara y se los manda al juego.
 
 INSTALAR (solo la primera vez)
-  1. Instale Python 3.12 (https://www.python.org/downloads/) y marque
-     "Add python.exe to PATH". MediaPipe no funciona con Python 3.13+.
+  1. Instale Python 3.9 o mas nuevo (https://www.python.org/downloads/) y
+     marque "Add python.exe to PATH".
   2. Doble clic en iniciar_camara.bat: instala las librerias solo
-     (mediapipe y opencv) y abre el detector.
+     (mediapipe, que ya trae opencv) y abre el detector.
+  El modelo que reconoce el cuerpo (pose_landmarker_full.task) ya viene
+  en esta carpeta: despues de instalar no hace falta internet.
 
 USAR
   - Abra el detector (iniciar_camara.bat o el boton dentro del juego).
@@ -31,8 +33,8 @@ AJUSTES
   Pruebas de los gestos:      python prueba_gestos.py
 
 COMO FUNCIONA
-  detector_peleaviral.py  abre la camara y usa MediaPipe Pose (33 puntos
-                          del cuerpo); manda al juego por UDP:
+  detector_peleaviral.py  abre la camara y usa MediaPipe PoseLandmarker
+                          (33 puntos del cuerpo); manda al juego por UDP:
                             puerto 4242: lo detectado (JSON)
                             puerto 4243: imagen pequena de la camara (JPEG)
   gestos.py               convierte los puntos del cuerpo en defensa,
